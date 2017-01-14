@@ -29,7 +29,8 @@ public class Drive_Command extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.driveBase.robotDrive(m_speedL, m_speedR);
+		new SC_GroupingL(m_speedL);
+		new SC_GroupingR(m_speedR);
 	}
 
 	@Override
@@ -45,7 +46,8 @@ public class Drive_Command extends Command {
 	
 	@Override
 	protected void end() {
-		Robot.driveBase.robotDrive(0, 0);
+		new SC_GroupingL(0);
+		new SC_GroupingR(0);
 	}
 
 	@Override

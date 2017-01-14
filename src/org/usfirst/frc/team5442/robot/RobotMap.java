@@ -2,9 +2,7 @@ package org.usfirst.frc.team5442.robot;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -14,28 +12,35 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * floating around.
  */
 public class RobotMap {
-	// Speed Controllers & 
-	public static SpeedController dTSparkController1;
-	public static SpeedController dTSparkController2;
-	public static SpeedController dTSparkController3;
-	public static SpeedController dTSparkController4;
-	public static RobotDrive driveTrainRobotDrive;
+	/** Speed Controllers */
+	//Left Side
+	public static Spark dTSparkController1;
+	public static Spark dTSparkController2;
+	public static Spark dTSparkController3;
+	//Right Side
+	public static Spark dTSparkController4;
+	public static Spark dTSparkController5;
+	public static Spark dTSparkController6;
+	//Drive Train
+	//public static RobotDrive driveTrainRobotDrive;
 	
 	
 	
-	//Encoders
+	/** Encoders */
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
 	
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
-		dTSparkController1 = new Spark(1);
-		dTSparkController2 = new Spark(2);
-		dTSparkController3 = new Spark(3);
-		dTSparkController4 = new Spark(4);
+		dTSparkController1 = new Spark(0);
+		dTSparkController2 = new Spark(1);
+		dTSparkController3 = new Spark(2);
+		dTSparkController4 = new Spark(3);
+		dTSparkController5 = new Spark(4);
+		dTSparkController6 = new Spark(5);
 		// Set this to whatever works, really
-		driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
+		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
 		
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);

@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team5442.robot;
 
-import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
+//import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
-	public static DriveTrain driveBase;
+	//public static DriveTrain driveBase;
 	public static Sensors sensors;
 	
 	
@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		driveBase = new DriveTrain();
+		//driveBase = new DriveTrain();
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
 	}
