@@ -1,10 +1,11 @@
-package org.usfirst.frc.team5442.robot.commands;
+package org.usfirst.frc.team5442.robot.subsystems;
 
 import org.usfirst.frc.team5442.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class SC_GroupingR extends Command{
+public class SC_GroupingR extends Subsystem{
 	// Creates constant for speed
 	private double m_speedR;
 	
@@ -21,10 +22,11 @@ public class SC_GroupingR extends Command{
 		RobotMap.dTSparkController5.set(m_speedR);
 		RobotMap.dTSparkController6.set(m_speedR);
 	}
+
 	@Override
-	protected boolean isFinished() {
+	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 	
 }

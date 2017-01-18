@@ -6,6 +6,8 @@
 package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.OI;
+import org.usfirst.frc.team5442.robot.subsystems.SC_GroupingL;
+import org.usfirst.frc.team5442.robot.subsystems.SC_GroupingR;
 
 import edu.wpi.first.wpilibj.command.Command;
 
