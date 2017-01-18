@@ -6,9 +6,7 @@
 package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.OI;
-import org.usfirst.frc.team5442.robot.subsystems.SC_GroupingL;
-import org.usfirst.frc.team5442.robot.subsystems.SC_GroupingR;
-
+import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -26,8 +24,8 @@ public class  TankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	new SC_GroupingL(OI.xboxController1.getRawAxis(1));
-    	new SC_GroupingR(OI.xboxController1.getRawAxis(5));
+    	DriveTrain.LeftSide(OI.xboxController1.getRawAxis(1));
+    	DriveTrain.RightSide(OI.xboxController1.getRawAxis(5));
     }
     
     protected boolean isFinished() {
