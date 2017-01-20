@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
+		driveTrain = new DriveTrain();
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.

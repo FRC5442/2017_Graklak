@@ -53,7 +53,8 @@ public class Drive_Command extends Command {
 
 	@Override
 	protected void interrupted() {
-		
+		DriveTrain.LeftSide(0);
+		DriveTrain.RightSide(0);
 	}
 
 }
