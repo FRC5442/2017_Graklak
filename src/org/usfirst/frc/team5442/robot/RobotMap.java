@@ -16,11 +16,11 @@ public class RobotMap {
 	//Left Side
 	public static Spark dTSparkController1;
 	public static Spark dTSparkController2;
-	public static Spark dTSparkController3;
+	//public static Spark dTSparkController3;
 	//Right Side
 	public static Spark dTSparkController4;
 	public static Spark dTSparkController5;
-	public static Spark dTSparkController6;
+	//public static Spark dTSparkController6;
 	//Drive Train
 	//public static RobotDrive driveTrainRobotDrive;
 	
@@ -35,10 +35,10 @@ public class RobotMap {
 		// Change these Values here to the ports we eventually use on the robot   
 		dTSparkController1 = new Spark(0);
 		dTSparkController2 = new Spark(1);
-		dTSparkController3 = new Spark(2);
+		//dTSparkController3 = new Spark(2);
 		dTSparkController4 = new Spark(3);
 		dTSparkController5 = new Spark(4);
-		dTSparkController6 = new Spark(5);
+		//dTSparkController6 = new Spark(5);
 		// Set this to whatever works, really
 		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
 		
