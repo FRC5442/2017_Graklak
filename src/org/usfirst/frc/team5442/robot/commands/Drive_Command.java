@@ -2,6 +2,7 @@ package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.Robot;
 import org.usfirst.frc.team5442.robot.RobotMap;
+import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -29,7 +30,8 @@ public class Drive_Command extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.driveBase.robotDrive(m_speedL, m_speedR);
+		DriveTrain.LeftSide(m_speedL);
+		DriveTrain.RightSide(m_speedR);
 	}
 
 	@Override
@@ -45,12 +47,14 @@ public class Drive_Command extends Command {
 	
 	@Override
 	protected void end() {
-		Robot.driveBase.robotDrive(0, 0);
+		DriveTrain.LeftSide(0);
+		DriveTrain.RightSide(0);
 	}
 
 	@Override
 	protected void interrupted() {
-		
+		DriveTrain.LeftSide(0);
+		DriveTrain.RightSide(0);
 	}
 
 }
