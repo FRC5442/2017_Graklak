@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.AutoTestThing;
+import org.usfirst.frc.team5442.robot.commands.ExampleAuto;
+import org.usfirst.frc.team5442.robot.commands.Turn_Left;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
@@ -28,6 +31,7 @@ public class Robot extends IterativeRobot {
 	
 	
 	Command autonomousCommand;
+	
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -36,10 +40,17 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		RobotMap.init();
 		oi = new OI();
 		driveBase = new DriveTrain();
 		sensors = new Sensors();
+		
+		// Add auto modes here!
+		chooser.addObject("Example Auto Mode", new ExampleAuto());
+		chooser.addObject("Turn Left", new Turn_Left());
+		chooser.addDefault("Drive Forward", new AutoTestThing());
 		SmartDashboard.putData("Auto mode", chooser);
+		
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -69,6 +80,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		// this turns off the safety checks for the controller, which we don't need
+		// since this is autonomous
+		// see https://www.chiefdelphi.com/forums/showthread.php?t=100883
+		RobotMap.driveTrainRobotDrive.setSafetyEnabled(false); 
 		autonomousCommand = chooser.getSelected();
 
 		/*
@@ -89,6 +104,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder Left", Robot.sensors.encoderLeft.getDistance());
 	}
 
 	@Override
@@ -97,6 +113,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		RobotMap.driveTrainRobotDrive.setSafetyEnabled(true);
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -107,6 +124,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		System.out.println(RobotMap.EncoderLeft.getDistance());
 	}
 
 	/**

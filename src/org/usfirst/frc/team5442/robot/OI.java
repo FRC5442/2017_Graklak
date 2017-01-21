@@ -1,6 +1,10 @@
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.ServoButtonB;
+import org.usfirst.frc.team5442.robot.commands.ServoButtonA;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,7 +41,40 @@ public class OI {
 	 button.whenReleased(new ExampleCommand());
 	 */
 	
+	public static Joystick xboxController;
+    public static Joystick xboxController2;
+    public JoystickButton xboxAButton;
+    public JoystickButton xboxBButton;
+    public JoystickButton xboxXButton;
+    public JoystickButton xboxYButton;
+    public JoystickButton xboxRightBumper;
+    public JoystickButton xboxLeftBumper;
+    public JoystickButton xboxAButton2;
+    public JoystickButton xboxBButton2;
+    public JoystickButton xboxXButton2;
+    public JoystickButton xboxYButton2;
+    public JoystickButton xboxLeftTrigger2;
+    public JoystickButton xboxRightTrigger2;
+    public JoystickButton xboxLeftBumper2;
+    public JoystickButton xboxRightBumper2;
+    public JoystickButton xboxBackButton2;
 	
-	public static Joystick xboxController1 = new Joystick(0);
-	public static Joystick xboxController2 = new Joystick(1);
+
+    
+	
+	public OI(){
+		xboxController = new Joystick(0);
+		xboxController2 = new Joystick(1);
+		
+		xboxAButton = new JoystickButton(xboxController, 1);
+		xboxAButton.whenPressed(new ServoButtonA());
+		
+		xboxBButton = new JoystickButton(xboxController, 2);
+		xboxBButton.whenPressed(new ServoButtonB());
+		
+	}
+	
 }
+	
+	
+
