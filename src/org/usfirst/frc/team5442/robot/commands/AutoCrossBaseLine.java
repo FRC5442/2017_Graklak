@@ -10,6 +10,4 @@ public class AutoCrossBaseLine extends CommandGroup {
 		
 	}
 	
-	
-	
 }
