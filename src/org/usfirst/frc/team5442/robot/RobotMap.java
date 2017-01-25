@@ -1,7 +1,11 @@
 package org.usfirst.frc.team5442.robot;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -23,8 +27,9 @@ public class RobotMap {
 	public static Spark dTSparkController6;
 	//Drive Train
 	//public static RobotDrive driveTrainRobotDrive;
-	
-	
+
+	public static SerialPort navXBoard;
+	//NavX
 	
 	/** Encoders */
 	public static Encoder EncoderLeft;
@@ -41,6 +46,8 @@ public class RobotMap {
 		dTSparkController6 = new Spark(5);
 		// Set this to whatever works, really
 		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
+		
+		//navX
 		
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);

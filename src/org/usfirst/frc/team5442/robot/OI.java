@@ -1,11 +1,18 @@
 package org.usfirst.frc.team5442.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team5442.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
+
+
+
 public class OI {
 	/**
 	 * CREATING BUTTONS
@@ -40,4 +47,12 @@ public class OI {
 	
 	public static Joystick xboxController1 = new Joystick(0);
 	public static Joystick xboxController2 = new Joystick(1);
+	
+	public JoystickButton xboxBButton;
+	
+	public OI(){
+		xboxBButton = new JoystickButton (xboxController1, 2);
+		xboxBButton.whenPressed(new ZeroYaw());
+	}
+	
 }
