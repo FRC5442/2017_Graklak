@@ -30,6 +30,15 @@ public class PointTurn extends Command {
 	protected void execute() {
 		// TODO Auto-generated method stub
 		Robot.driveBase.robotDrive(m_speedL, m_speedR);
+		if (m_speedL < 0){
+			Robot.driveBase.robotDrive(m_speedL, -java.lang.Math.abs(m_speedR));
+		}
+		else if (m_speedR < 0){
+			Robot.driveBase.robotDrive(-java.lang.Math.abs(m_speedL), m_speedR);
+		}
+		if (m_speedL == 0 || m_speedR == 0){
+			Robot.driveBase.robotDrive(0, 0);
+		}
 	}
 
 	@Override
