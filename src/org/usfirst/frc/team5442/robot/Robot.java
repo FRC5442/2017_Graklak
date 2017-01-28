@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Sensors sensors;
 	public static DriveTrain driveTrain;
+	public static Climb climb;
 	
 	
 	
