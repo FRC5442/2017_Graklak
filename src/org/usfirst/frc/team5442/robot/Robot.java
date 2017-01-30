@@ -2,6 +2,7 @@
 package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
@@ -24,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Sensors sensors;
 	public static DriveTrain driveTrain;
+	public static Intake intake;
 	
 	
 	
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
 		driveTrain = new DriveTrain();
+		intake = new Intake();
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.

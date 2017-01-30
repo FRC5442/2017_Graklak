@@ -21,6 +21,11 @@ public class RobotMap {
 	public static Spark dTSparkController4;
 	public static Spark dTSparkController5;
 	public static Spark dTSparkController6;
+	public static Spark intake;
+	public static Spark shooter;
+	public static Spark gearMotor;
+	public static Spark climber;
+	
 	//Drive Train
 	//public static RobotDrive driveTrainRobotDrive;
 	
@@ -33,14 +38,19 @@ public class RobotMap {
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
-		dTSparkController1 = new Spark(0);
-		dTSparkController2 = new Spark(1);
-		dTSparkController3 = new Spark(2);
-		dTSparkController4 = new Spark(3);
-		dTSparkController5 = new Spark(4);
-		dTSparkController6 = new Spark(5);
+		dTSparkController1 = new Spark(1);
+		dTSparkController2 = new Spark(2);
+		dTSparkController3 = new Spark(3);
+		dTSparkController4 = new Spark(4);
+		dTSparkController5 = new Spark(5);
+		dTSparkController6 = new Spark(6);
 		// Set this to whatever works, really
 		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
+		
+		intake = new Spark(7);
+		shooter = new Spark(8);
+		gearMotor = new Spark(9);
+		climber = new Spark(0);
 		
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);

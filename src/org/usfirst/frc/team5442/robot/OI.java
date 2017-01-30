@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.IntakeButton;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,4 +42,17 @@ public class OI {
 	
 	public static Joystick xboxController1 = new Joystick(0);
 	public static Joystick xboxController2 = new Joystick(1);
+	public JoystickButton xboxAButton;
+	public JoystickButton xboxBButton;
+
+	
+	public OI(){
+		xboxAButton = new JoystickButton(xboxController1, 1);
+		xboxBButton = new JoystickButton(xboxController1, 2);
+		
+		xboxAButton.whileHeld(new IntakeButton());
+		xboxBButton.whileHeld(new IntakeButton());
+
+	}
+	
 }
