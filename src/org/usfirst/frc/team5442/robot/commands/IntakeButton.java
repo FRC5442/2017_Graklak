@@ -14,7 +14,7 @@ public class IntakeButton extends Command{
 	}
 	
 	protected void execute(){
-	Intake.Intaking(m_intake_speed, m_conveyor_speed);	
+		Intake.Intaking(m_intake_speed, m_conveyor_speed);	
 	}
 	
 	@Override

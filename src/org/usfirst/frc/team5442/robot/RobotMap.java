@@ -22,7 +22,7 @@ public class RobotMap {
 	public static Spark dTSparkController5;
 	public static Spark dTSparkController6;
 	public static Spark intake;
-	public static Spark shooter;
+	public static Spark conveyor;
 	public static Spark gearMotor;
 	public static Spark climber;
 	
@@ -48,7 +48,7 @@ public class RobotMap {
 		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
 		
 		intake = new Spark(7);
-		shooter = new Spark(8);
+		conveyor = new Spark(8);
 		gearMotor = new Spark(9);
 		climber = new Spark(0);
 		
