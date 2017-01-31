@@ -44,14 +44,17 @@ public class OI {
 	public static Joystick xboxController2 = new Joystick(1);
 	public JoystickButton xboxAButton;
 	public JoystickButton xboxBButton;
-
+	public JoystickButton xboxXButton;
+	
 	
 	public OI(){
 		xboxAButton = new JoystickButton(xboxController1, 1);
 		xboxBButton = new JoystickButton(xboxController1, 2);
+		xboxXButton = new JoystickButton(xboxController1, 3);
 		
-		xboxAButton.whileHeld(new IntakeButton());
-		xboxBButton.whileHeld(new IntakeButton());
+		xboxAButton.whileHeld(new IntakeButton(1,1));
+		xboxBButton.whileHeld(new IntakeButton(1,-1));
+		xboxXButton.whileHeld(new IntakeButton(-1,-1));
 
 	}
 	
