@@ -3,6 +3,7 @@ package org.usfirst.frc.team5442.robot;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -51,7 +52,6 @@ public class RobotMap {
 		conveyor = new Spark(8);
 		gearMotor = new Spark(9);
 		climber = new Spark(0);
-		
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);

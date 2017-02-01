@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5442.robot.subsystems;
 
 import org.usfirst.frc.team5442.robot.RobotMap;
+import org.usfirst.frc.team5442.robot.commands.TankDrive;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -29,7 +30,7 @@ public class DriveTrain extends Subsystem {
 	}
 	@Override
 	protected void initDefaultCommand() {
-		
+		new TankDrive();
 	}
 
 }

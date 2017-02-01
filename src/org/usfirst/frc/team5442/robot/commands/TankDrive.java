@@ -6,6 +6,7 @@
 package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.OI;
+import org.usfirst.frc.team5442.robot.Robot;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class  TankDrive extends Command {
 
     public TankDrive() {
-    	//requires(Robot.driveBase);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time

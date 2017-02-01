@@ -40,22 +40,29 @@ public class OI {
 	 */
 	
 	
-	public static Joystick xboxController1 = new Joystick(0);
-	public static Joystick xboxController2 = new Joystick(1);
+	public static Joystick xboxController1;
+	public static Joystick xboxController2;
 	public JoystickButton xboxAButton;
 	public JoystickButton xboxBButton;
 	public JoystickButton xboxXButton;
 	
 	
 	public OI(){
+		xboxController1 = new Joystick(0);
+		xboxController2 = new Joystick(1);
 		xboxAButton = new JoystickButton(xboxController1, 1);
 		xboxBButton = new JoystickButton(xboxController1, 2);
 		xboxXButton = new JoystickButton(xboxController1, 3);
 		
-		xboxAButton.whileHeld(new IntakeButton(1,1));
+		/**xboxAButton.whileHeld(new IntakeButton(1,1));
 		xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
-
+**/
 	}
-	
+	public Joystick getXboxController1() {
+        return xboxController1;
+    }
+	public Joystick getXboxController2() {
+        return xboxController2;
+    }
 }
