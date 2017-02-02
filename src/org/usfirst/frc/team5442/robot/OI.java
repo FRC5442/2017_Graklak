@@ -1,6 +1,10 @@
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.IntakeAuto;
 import org.usfirst.frc.team5442.robot.commands.IntakeButton;
+//import org.usfirst.frc.team5442.robot.commands.TankDrive;
+import org.usfirst.frc.team5442.robot.commands.Test;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -54,8 +58,9 @@ public class OI {
 		xboxBButton = new JoystickButton(xboxController1, 2);
 		xboxXButton = new JoystickButton(xboxController1, 3);
 		
-		/**xboxAButton.whileHeld(new IntakeButton(1,1));
-		xboxBButton.whileHeld(new IntakeButton(1,-1));
+		
+		xboxAButton.whileHeld(new Test());
+		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
 **/
 	}
