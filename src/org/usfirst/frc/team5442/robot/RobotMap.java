@@ -2,6 +2,7 @@ package org.usfirst.frc.team5442.robot;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -15,20 +16,17 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
 	/** Speed Controllers */
 	//Left Side
-	public static Spark dTSparkController1;
-	public static Spark dTSparkController2;
-	public static Spark dTSparkController3;
+	public static Spark dTSparkControllerLeft;
 	//Right Side
-	public static Spark dTSparkController4;
-	public static Spark dTSparkController5;
-	public static Spark dTSparkController6;
+	public static Spark dTSparkControllerRight;
+	
 	public static Spark intake;
 	public static Spark conveyor;
 	public static Spark gearMotor;
 	public static Spark climber;
 	
 	//Drive Train
-	//public static RobotDrive driveTrainRobotDrive;
+	public static RobotDrive driveTrainRobotDrive;
 	
 	
 	
@@ -39,14 +37,10 @@ public class RobotMap {
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
-		dTSparkController1 = new Spark(1);
-		dTSparkController2 = new Spark(2);
-		dTSparkController3 = new Spark(3);
-		dTSparkController4 = new Spark(4);
-		dTSparkController5 = new Spark(5);
-		dTSparkController6 = new Spark(6);
+		dTSparkControllerLeft = new Spark(1);
+		dTSparkControllerRight = new Spark(2);
 		// Set this to whatever works, really
-		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
+		
 		
 		intake = new Spark(7);
 		conveyor = new Spark(8);

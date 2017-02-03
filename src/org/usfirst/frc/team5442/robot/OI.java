@@ -53,7 +53,7 @@ public class OI {
 	
 	public OI(){
 		xboxController1 = new Joystick(0);
-		xboxController2 = new Joystick(1);
+		//xboxController2 = new Joystick(1);
 		xboxAButton = new JoystickButton(xboxController1, 1);
 		xboxBButton = new JoystickButton(xboxController1, 2);
 		xboxXButton = new JoystickButton(xboxController1, 3);
