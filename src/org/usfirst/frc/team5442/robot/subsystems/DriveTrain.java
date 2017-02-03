@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DriveTrain extends Subsystem {
 	
 	
-	private static SpeedController LeftSparks = RobotMap.dTSparkControllerLeft;
-	private static SpeedController RightSparks = RobotMap.dTSparkControllerRight;
+	private static Spark LeftSparks = RobotMap.dTSparkControllerLeft;
+	private static Spark RightSparks = RobotMap.dTSparkControllerRight;
 	private static RobotDrive driveTrain = new RobotDrive(LeftSparks , RightSparks);
 	
 	public static void RobotDrive(double LeftSparks, double RightSparks){

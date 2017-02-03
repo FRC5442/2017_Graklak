@@ -11,7 +11,7 @@ public class Intake extends Subsystem{
 	private static Spark conveyorMotor = RobotMap.conveyor;
 	
 	public static void Intaking(double intake_speed, double conveyor_speed){
-		intakeMotor.set(1);
+		intakeMotor.set(intake_speed);
 		conveyorMotor.set(conveyor_speed);
 	}
 	@Override

@@ -3,6 +3,7 @@ package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static Sensors sensors;
 	public static DriveTrain driveTrain;
 	public static Intake intake;
+	public static GearManipulator gearManipulator;
 	public static Climb climb;
 	
 	
@@ -47,6 +49,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 		driveTrain = new DriveTrain();
 		intake = new Intake();
+		gearManipulator = new GearManipulator();
 		climb = new Climb();
 	}
 	/**

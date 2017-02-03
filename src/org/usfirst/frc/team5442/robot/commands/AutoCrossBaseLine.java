@@ -6,7 +6,7 @@ public class AutoCrossBaseLine extends CommandGroup {
 
 	public AutoCrossBaseLine() {
 		
-		//addSequential(new Drive_Command(5, 0.75, 0.75));
+		addSequential(new Drive_Command(5, 0.75, 0.75));
 		
 	}
 	

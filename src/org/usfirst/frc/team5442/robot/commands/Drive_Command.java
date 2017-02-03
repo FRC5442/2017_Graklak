@@ -1,4 +1,4 @@
-/*package org.usfirst.frc.team5442.robot.commands;
+package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.Robot;
 import org.usfirst.frc.team5442.robot.RobotMap;
@@ -30,8 +30,7 @@ public class Drive_Command extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		DriveTrain.LeftSide(m_speedL);
-		DriveTrain.RightSide(m_speedR);
+		DriveTrain.RobotDrive(m_speedL, m_speedR);
 	}
 
 	@Override
@@ -47,15 +46,12 @@ public class Drive_Command extends Command {
 	
 	@Override
 	protected void end() {
-		DriveTrain.LeftSide(0);
-		DriveTrain.RightSide(0);
+		DriveTrain.RobotDrive(0,0);
 	}
 
 	@Override
 	protected void interrupted() {
-		DriveTrain.LeftSide(0);
-		DriveTrain.RightSide(0);
+		DriveTrain.RobotDrive(0,0);
 	}
 
 }
-*/
