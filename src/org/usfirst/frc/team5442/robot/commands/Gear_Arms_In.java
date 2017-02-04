@@ -6,14 +6,13 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Gear_Arms_In extends Command{
 
-	private double ArmSpeed;
 	
-	public Gear_Arms_In(double speed) {
-		ArmSpeed = speed;
+	public Gear_Arms_In() {
+		
 	}
 	
 	protected void execute(){
-		GearManipulator.Move(ArmSpeed);
+		GearManipulator.Move(1);
 	}
 
 	@Override

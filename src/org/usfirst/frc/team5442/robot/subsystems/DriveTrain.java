@@ -11,17 +11,32 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DriveTrain extends Subsystem {
 	
 	
-	private static Spark LeftSparks = RobotMap.dTSparkControllerLeft;
-	private static Spark RightSparks = RobotMap.dTSparkControllerRight;
-	private static RobotDrive driveTrain = new RobotDrive(LeftSparks , RightSparks);
+	//private static Spark LeftSparks = RobotMap.dTSparkControllerLeft;
+	//private static Spark RightSparks = RobotMap.dTSparkControllerRight;
+	private static Spark Spark1 = RobotMap.dtSparkController1;
+	private static Spark Spark2 = RobotMap.dtSparkController2;
+	private static Spark Spark6 = RobotMap.dtSparkController6;
+	private static Spark Spark3 = RobotMap.dtSparkController3;
+	private static Spark Spark4 = RobotMap.dtSparkController4;
+	private static Spark Spark7 = RobotMap.dtSparkController7;
+	//private static RobotDrive driveTrain = new RobotDrive(LeftSparks, RightSparks);
+	private static RobotDrive driveTrain = RobotMap.driveTrainRobotDrive;
 	
+	
+	public static void LeftDrive (double Sparks){
+		Spark1.set(Sparks);
+		Spark2.set(Sparks);
+		Spark6.set(Sparks);
+		
+	}
 	public static void RobotDrive(double LeftSparks, double RightSparks){
 		driveTrain.tankDrive(LeftSparks, RightSparks);
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
-		new TankDrive();
+		//setDefaultCommand(new TankDrive());
+		
 	}
 
 }

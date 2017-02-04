@@ -2,6 +2,7 @@ package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.commands.IntakeAuto;
 import org.usfirst.frc.team5442.robot.commands.IntakeButton;
+import org.usfirst.frc.team5442.robot.commands.TankDrive;
 //import org.usfirst.frc.team5442.robot.commands.TankDrive;
 import org.usfirst.frc.team5442.robot.commands.Test;
 
@@ -58,7 +59,7 @@ public class OI {
 		xboxBButton = new JoystickButton(xboxController1, 2);
 		xboxXButton = new JoystickButton(xboxController1, 3);
 		
-		
+		xboxBButton.whileHeld(new TankDrive());
 		xboxAButton.whileHeld(new Test());
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));

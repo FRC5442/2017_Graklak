@@ -15,17 +15,19 @@ import edu.wpi.first.wpilibj.command.Command;
 public class  TankDrive extends Command {
 
     public TankDrive() {
-    	requires(Robot.driveTrain);
+    	//requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//DriveTrain.RobotDrive(OI.xboxController1.getRawAxis(1), OI.xboxController1.getRawAxis(5));
-    	Robot.driveTrain.RobotDrive(1,1);
+    	DriveTrain.RobotDrive(OI.xboxController1.getRawAxis(1), OI.xboxController1.getRawAxis(5));
+    	//DriveTrain.RobotDrive(1,1);
+    	//DriveTrain.LeftDrive(OI.xboxController1.getRawAxis(1));
   
     }
     
