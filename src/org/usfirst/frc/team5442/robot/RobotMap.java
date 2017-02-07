@@ -2,7 +2,9 @@ package org.usfirst.frc.team5442.robot;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -14,18 +16,26 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class RobotMap {
 	/** Speed Controllers */
 	//Left Side
-	public static Spark dTSparkController1;
-	public static Spark dTSparkController2;
-	public static Spark dTSparkController3;
+	public static Spark dtSparkController1;
+	public static Spark dtSparkController2;
+	public static Spark dtSparkController6;
+	//public static Spark dTSparkControllerLeft;
 	//Right Side
-	public static Spark dTSparkController4;
-	public static Spark dTSparkController5;
-	public static Spark dTSparkController6;
+	public static Spark dtSparkController3;
+	public static Spark dtSparkController4;
+	public static Spark dtSparkController7;
+	//public static Spark dTSparkControllerRight;
+	//Intake Systems
+	public static Spark intake;
+	public static Spark conveyor;
+	//Gear Manipulator
+	public static Spark gearMotor;
+	//Read the Variable
+	public static Spark climber;
 	//Drive Train
-	//public static RobotDrive driveTrainRobotDrive;
-	
-	
-	
+	public static RobotDrive driveTrainRobotDrive;
+	public static RobotDrive rightSparks;
+	public static RobotDrive leftSparks;
 	/** Encoders */
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
@@ -33,17 +43,25 @@ public class RobotMap {
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
-		dTSparkController1 = new Spark(0);
-		dTSparkController2 = new Spark(1);
-		dTSparkController3 = new Spark(2);
-		dTSparkController4 = new Spark(3);
-		dTSparkController5 = new Spark(4);
-		dTSparkController6 = new Spark(5);
+		//dTSparkControllerLeft = new Spark(1);
+		//dTSparkControllerRight = new Spark(2);
+		//Left Motor controllers
+		dtSparkController1 = new Spark(4);
+		dtSparkController2 = new Spark(3);
+		dtSparkController6 = new Spark(5);
+		//Right Motor Controllers
+		dtSparkController7 = new Spark(0);
+		dtSparkController4 = new Spark(1);
+		dtSparkController3 = new Spark(2);
 		// Set this to whatever works, really
-		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
-		
+		//driveTrainRobotDrive = new RobotDrive(dTSparkControllerLeft, dTSparkControllerRight);
+		driveTrainRobotDrive = new RobotDrive(dtSparkController1, dtSparkController2, dtSparkController7, dtSparkController4);
+		//intake = new Spark(7);
+		//conveyor = new Spark(8);
+		//gearMotor = new Spark(9);
+		//climber = new Spark(0);
 		// Encoders, ports 2/3 and 4/5 
-		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
+		/**EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
         EncoderLeft.setSamplesToAverage(5);
         EncoderLeft.setDistancePerPulse(1.0/360);
@@ -52,7 +70,7 @@ public class RobotMap {
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Right", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
-        
+        **/
 	}
 	
 	

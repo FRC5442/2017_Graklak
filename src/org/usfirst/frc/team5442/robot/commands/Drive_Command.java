@@ -30,8 +30,7 @@ public class Drive_Command extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		DriveTrain.LeftSide(m_speedL);
-		DriveTrain.RightSide(m_speedR);
+		Robot.driveTrain.RobotDrive(m_speedL, m_speedR);
 	}
 
 	@Override
@@ -47,14 +46,12 @@ public class Drive_Command extends Command {
 	
 	@Override
 	protected void end() {
-		DriveTrain.LeftSide(0);
-		DriveTrain.RightSide(0);
+		Robot.driveTrain.RobotDrive(0,0);
 	}
 
 	@Override
 	protected void interrupted() {
-		DriveTrain.LeftSide(0);
-		DriveTrain.RightSide(0);
+		Robot.driveTrain.RobotDrive(0,0);
 	}
 
 }

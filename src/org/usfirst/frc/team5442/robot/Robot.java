@@ -1,11 +1,16 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
+//import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -24,6 +29,9 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Sensors sensors;
 	public static DriveTrain driveTrain;
+	public static Intake intake;
+	public static GearManipulator gearManipulator;
+	public static Climb climb;
 	
 	
 	
@@ -36,10 +44,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		RobotMap.init();
 		oi = new OI();
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
 		driveTrain = new DriveTrain();
+		intake = new Intake();
+		gearManipulator = new GearManipulator();
+		climb = new Climb();
+		
 	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -70,7 +83,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
-
+		//RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -97,8 +110,9 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		if (autonomousCommand != null){
+			autonomousCommand.cancel();}
+		
 	}
 
 	/**

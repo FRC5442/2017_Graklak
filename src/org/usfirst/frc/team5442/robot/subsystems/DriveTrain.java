@@ -1,34 +1,41 @@
 package org.usfirst.frc.team5442.robot.subsystems;
 
 import org.usfirst.frc.team5442.robot.RobotMap;
+import org.usfirst.frc.team5442.robot.commands.TankDrive;
 
+import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem {
 	
-	private static Spark lSparkcontroller1 = RobotMap.dTSparkController1;
-	private static Spark lSparkController2 = RobotMap.dTSparkController2;
-	private static Spark lSparkController3 = RobotMap.dTSparkController3;
 	
-	private static Spark rSparkcontroller4 = RobotMap.dTSparkController4;
-	private static Spark rSparkController5 = RobotMap.dTSparkController5;
-	private static Spark rSparkController6 = RobotMap.dTSparkController6;
-
+	//private static Spark LeftSparks = RobotMap.dTSparkControllerLeft;
+	//private static Spark RightSparks = RobotMap.dTSparkControllerRight;
+	private static Spark Spark1 = RobotMap.dtSparkController1;
+	private static Spark Spark2 = RobotMap.dtSparkController2;
+	private static Spark Spark6 = RobotMap.dtSparkController6;
+	private static Spark Spark3 = RobotMap.dtSparkController3;
+	private static Spark Spark4 = RobotMap.dtSparkController4;
+	private static Spark Spark7 = RobotMap.dtSparkController7;
+	//private static RobotDrive driveTrain = new RobotDrive(LeftSparks, RightSparks);
+	private static RobotDrive driveTrain = RobotMap.driveTrainRobotDrive;
 	
-	public static void LeftSide(double speed){
-		lSparkcontroller1.set(speed);
-		lSparkController2.set(speed);
-		lSparkController3.set(speed);
+	
+	public static void LeftDrive (double Sparks){
+		Spark1.set(Sparks);
+		Spark2.set(Sparks);
+		Spark6.set(Sparks);
+		
+	}
+	public static void RobotDrive(double LeftSparks, double RightSparks){
+		driveTrain.tankDrive(LeftSparks, RightSparks);
 	}
 	
-	public static void RightSide(double speed){
-		rSparkcontroller4.set(speed);
-		rSparkController5.set(speed);
-		rSparkController6.set(speed);
-	}
 	@Override
 	protected void initDefaultCommand() {
+		//setDefaultCommand(new TankDrive());
 		
 	}
 
