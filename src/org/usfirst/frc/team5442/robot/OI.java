@@ -47,20 +47,61 @@ public class OI {
 	
 	public static Joystick xboxController1;
 	public static Joystick xboxController2;
+	// Xbox Controller 1 Buttons
 	public JoystickButton xboxAButton;
 	public JoystickButton xboxBButton;
 	public JoystickButton xboxXButton;
+	public JoystickButton xboxYButton;
+	public JoystickButton xboxLBumper;
+	public JoystickButton xboxRBumper;
+	public JoystickButton xboxStart;
+	public JoystickButton xboxBack;
+	
+	// Xbox Controller 2 Buttons
+	public JoystickButton xbox2AButton;
+	public JoystickButton xbox2BButton;
+	public JoystickButton xbox2XButton;
+	public JoystickButton xbox2YButton;
+	public JoystickButton xbox2LBumper;
+	public JoystickButton xbox2RBumper;
+	public JoystickButton xbox2Start;
+	public JoystickButton xbox2Back;
+	
+	
 	
 	
 	public OI(){
+		// Setting Controller Order
 		xboxController1 = new Joystick(0);
-		//xboxController2 = new Joystick(1);
+		xboxController2 = new Joystick(1);
+		
+		// Setting Controller 1 Buttons
 		xboxAButton = new JoystickButton(xboxController1, 1);
 		xboxBButton = new JoystickButton(xboxController1, 2);
 		xboxXButton = new JoystickButton(xboxController1, 3);
+		xboxYButton = new JoystickButton(xboxController1, 4);
+		xboxLBumper = new JoystickButton(xboxController1, 5);
+		xboxRBumper = new JoystickButton(xboxController1, 6);
+		xboxBack = new JoystickButton(xboxController1, 7);
+		xboxStart = new JoystickButton(xboxController1, 8);
 		
-		xboxBButton.whileHeld(new TankDrive());
+		// Setting Controller 2 Buttons
+		xbox2AButton = new JoystickButton(xboxController2, 1);
+		xbox2BButton = new JoystickButton(xboxController2, 2);
+		xbox2XButton = new JoystickButton(xboxController2, 3);
+		xbox2YButton = new JoystickButton(xboxController2, 4);
+		xbox2LBumper = new JoystickButton(xboxController2, 5);
+		xbox2RBumper = new JoystickButton(xboxController2, 6);
+		xbox2Back = new JoystickButton(xboxController2, 7);
+		xbox2Start = new JoystickButton(xboxController2, 8);
+		
+		// Setting what the button does 
+		//**NOTE** 
+		//.whileHeld = when held, run command; when released, stop running
+		//.whenPressed = run once when pressed, stop when conditions are met.
 		xboxAButton.whileHeld(new Test());
+		xboxBButton.whileHeld(new TankDrive());
+		
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
 **/
