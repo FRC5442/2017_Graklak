@@ -21,8 +21,8 @@ public class DriveTrain extends Subsystem {
 	//private static Spark Spark3 = RobotMap.dtSparkController3;
 	//private static Spark Spark4 = RobotMap.dtSparkController4;
 	//private static Spark Spark7 = RobotMap.dtSparkController7;
-	//private static RobotDrive driveTrain = new RobotDrive(LeftSparks, RightSparks);
-	private static RobotDrive driveTrain = RobotMap.driveTrainRobotDrive;
+	private static RobotDrive driveTrain = new RobotDrive(LeftSparks, RightSparks);
+	//private static RobotDrive driveTrain = RobotMap.driveTrainRobotDrive;
 	
 	/*
 	public static void LeftDrive (double Sparks){

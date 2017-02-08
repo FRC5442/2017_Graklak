@@ -1,13 +1,13 @@
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.ConveyorCmd;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
+import org.usfirst.frc.team5442.robot.commands.Intake;
 import org.usfirst.frc.team5442.robot.commands.IntakeAuto;
 import org.usfirst.frc.team5442.robot.commands.IntakeButton;
+import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
 import org.usfirst.frc.team5442.robot.commands.TankDrive;
-//import org.usfirst.frc.team5442.robot.commands.TankDrive;
-import org.usfirst.frc.team5442.robot.commands.Test;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -101,8 +101,14 @@ public class OI {
 		//**NOTE** 
 		//.whileHeld = when held, run command; when released, stop running
 		//.whenPressed = run once when pressed, stop when conditions are met.
+		
+		// Check if calling subsystems into OI works; See: GearManipulator.java
 		xboxXButton.whileHeld(new Gear_Arms_In());
 		xboxBButton.whileHeld(new Gear_Arms_Out());
+		
+		xbox2AButton.whileHeld(new IntakeCmd());
+		xbox2BButton.whileHeld(new ConveyorCmd());
+		xbox2XButton.whileHeld(new FullIntake());
 		
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));

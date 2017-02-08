@@ -52,25 +52,32 @@ public class RobotMap {
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
+		
 		dTSparkControllerLeft = new Spark(0);
 		dTSparkControllerRight = new Spark(1);
+		
 		////// Only Use if 1 speed controller = 1 port
+		
 		//// Left Motor controllers
 		//dtSparkController0 = new Spark(0);
 		//dtSparkController1 = new Spark(1);
 		//dtSparkController2 = new Spark(2);
+		
 		//// Right Motor Controllers
 		//dtSparkController3 = new Spark(3);
 		//dtSparkController4 = new Spark(4);
 		//dtSparkController5 = new Spark(5);
-		intake = new Spark(7);
-		conveyor = new Spark(8);
-		gearMotor = new Spark(9);
+		
+		climber = new Spark(2);
+		intake = new Spark(3);
+		conveyor = new Spark(4);
+		gearMotor = new Spark(5);
+		
 		// Set this to whatever works, really
 		driveTrainRobotDrive = new RobotDrive(dTSparkControllerLeft, dTSparkControllerRight);
 		//driveTrainRobotDrive = new RobotDrive(dtSparkController1, dtSparkController2, dtSparkController7, dtSparkController4);
 		
-		//climber = new Spark(0);
+		
 		// Encoders, ports 2/3 and 4/5 
 		/**EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);

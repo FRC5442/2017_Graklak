@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class GearManipulator extends Subsystem{
 
 	public static Spark arms = RobotMap.gearMotor;
-	
+	 // Test if calling subsystems into OI works
 	public static void Move(double armSpeed) {
 		arms.set(armSpeed);
 	}
