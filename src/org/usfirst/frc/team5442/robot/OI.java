@@ -1,13 +1,11 @@
 package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.commands.ConveyorCmd;
+import org.usfirst.frc.team5442.robot.commands.FullIntake;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
-import org.usfirst.frc.team5442.robot.commands.Intake;
-import org.usfirst.frc.team5442.robot.commands.IntakeAuto;
-import org.usfirst.frc.team5442.robot.commands.IntakeButton;
 import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
-import org.usfirst.frc.team5442.robot.commands.TankDrive;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
