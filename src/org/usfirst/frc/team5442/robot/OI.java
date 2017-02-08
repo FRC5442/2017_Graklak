@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
+import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
 import org.usfirst.frc.team5442.robot.commands.IntakeAuto;
 import org.usfirst.frc.team5442.robot.commands.IntakeButton;
 import org.usfirst.frc.team5442.robot.commands.TankDrive;
@@ -99,8 +101,8 @@ public class OI {
 		//**NOTE** 
 		//.whileHeld = when held, run command; when released, stop running
 		//.whenPressed = run once when pressed, stop when conditions are met.
-		xboxAButton.whileHeld(new Test());
-		xboxBButton.whileHeld(new TankDrive());
+		xboxXButton.whileHeld(new Gear_Arms_In());
+		xboxBButton.whileHeld(new Gear_Arms_Out());
 		
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
