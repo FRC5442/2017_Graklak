@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class  TankDrive extends Command {
 
     public TankDrive() {
-    	//requires(Robot.driveTrain);
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
