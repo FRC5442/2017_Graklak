@@ -11,7 +11,7 @@ public class ZeroYaw extends Command{
 	}
 	
 	protected void execute(){
-		Robot.ahrs.zeroYaw();
+		Robot.NavX.zeroYaw();
 	}
 	
 	@Override

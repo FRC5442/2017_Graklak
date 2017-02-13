@@ -28,7 +28,7 @@ public class RobotMap {
 	//Drive Train
 	//public static RobotDrive driveTrainRobotDrive;
 
-	public static SerialPort navXBoard;
+	public static AHRS NavX;
 	//NavX
 	
 	/** Encoders */
@@ -48,7 +48,7 @@ public class RobotMap {
 		//driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController3, dTSparkController2, dTSparkController4);
 		
 		//navX
-		
+		NavX = new AHRS(SerialPort.Port.kMXP);
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);

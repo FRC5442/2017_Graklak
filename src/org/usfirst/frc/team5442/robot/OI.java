@@ -52,7 +52,7 @@ public class OI {
 	
 	public OI(){
 		xboxBButton = new JoystickButton (xboxController1, 2);
-		xboxBButton.whenPressed(new ZeroYaw());
+		
 	}
 	
 }
