@@ -1,8 +1,5 @@
 package org.usfirst.frc.team5442.robot;
 
-import org.usfirst.frc.team5442.robot.commands.ServoButtonB;
-import org.usfirst.frc.team5442.robot.commands.ServoButtonA;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -65,12 +62,6 @@ public class OI {
 	public OI(){
 		xboxController = new Joystick(0);
 		xboxController2 = new Joystick(1);
-		
-		xboxAButton = new JoystickButton(xboxController, 1);
-		xboxAButton.whenPressed(new ServoButtonA());
-		
-		xboxBButton = new JoystickButton(xboxController, 2);
-		xboxBButton.whenPressed(new ServoButtonB());
 		
 	}
 	
