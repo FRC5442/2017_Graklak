@@ -4,10 +4,10 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ConveyorCmd extends Command{
+public class Eject extends Command{
 	
 	protected void execute(){
-		Intake.Intaking(0, .8);
+		Intake.Intaking(-1, -1);
 	}
 
 	@Override

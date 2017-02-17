@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class IntakeCmd extends Command {
 	
 	protected void execute(){
-		Intake.Intaking(.8, 0);
+		Intake.Intaking(1, 1);
 		
 	}
 

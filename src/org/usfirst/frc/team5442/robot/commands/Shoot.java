@@ -4,10 +4,10 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class FullIntake extends Command{
+public class Shoot extends Command{
 	
 	protected void execute(){
-		Intake.Intaking(.8, .8);
+		Intake.Intaking(1, -1);
 	}
 
 	@Override

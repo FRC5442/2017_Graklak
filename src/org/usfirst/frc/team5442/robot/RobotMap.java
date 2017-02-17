@@ -2,6 +2,7 @@ package org.usfirst.frc.team5442.robot;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -50,6 +51,9 @@ public class RobotMap {
 	public static Encoder EncoderRight;
 	
 	
+	public static PowerDistributionPanel pdp;
+	
+	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
 		
@@ -89,6 +93,8 @@ public class RobotMap {
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         **/
+		
+		pdp = new PowerDistributionPanel();
 	}
 	
 	

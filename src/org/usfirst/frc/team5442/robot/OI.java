@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5442.robot;
 
-import org.usfirst.frc.team5442.robot.commands.ConveyorCmd;
-import org.usfirst.frc.team5442.robot.commands.FullIntake;
+import org.usfirst.frc.team5442.robot.commands.Eject;
+import org.usfirst.frc.team5442.robot.commands.Shoot;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
 import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
@@ -104,9 +104,9 @@ public class OI {
 		xboxXButton.whileHeld(new Gear_Arms_In());
 		xboxBButton.whileHeld(new Gear_Arms_Out());
 		
-		xbox2AButton.whileHeld(new IntakeCmd());
-		xbox2BButton.whileHeld(new ConveyorCmd());
-		xbox2XButton.whileHeld(new FullIntake());
+		xbox2AButton.whileHeld(new Shoot());
+		xbox2BButton.whileHeld(new IntakeCmd());
+		xbox2XButton.whileHeld(new Eject());
 		
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));

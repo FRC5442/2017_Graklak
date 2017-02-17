@@ -121,6 +121,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("PDP Voltage", RobotMap.pdp.getVoltage());
+		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
 	}
 
 	/**
