@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.AutoCrossBaseLine;
+import org.usfirst.frc.team5442.robot.commands.NoAuto;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
@@ -9,6 +11,8 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
+import baseCommands.DrivePID;
+import baseCommands.DriveStraightCmd;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
@@ -32,6 +36,8 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static GearManipulator gearManipulator;
 	public static Climb climb;
+	public static DrivePID drivePID;
+	SendableChooser AutonomousModes;
 	
 	
 	
@@ -49,9 +55,17 @@ public class Robot extends IterativeRobot {
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
 		driveTrain = new DriveTrain();
+		//driveTrain.setExpiration(0.1);
 		intake = new Intake();
 		gearManipulator = new GearManipulator();
 		climb = new Climb();
+		drivePID = new DrivePID();
+		
+		AutonomousModes = new SendableChooser();
+		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
+		AutonomousModes.addDefault("No Auto", new NoAuto());
+		AutonomousModes.addObject("DriveStraight PID", new DriveStraightCmd(5));
+		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
 	}
 	/**
@@ -92,8 +106,9 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		if (autonomousCommand != null) autonomousCommand.start();
+        autonomousCommand = (Command) AutonomousModes.getSelected();
+        autonomousCommand.start();
 	}
 
 	/**
@@ -123,6 +138,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("PDP Voltage", RobotMap.pdp.getVoltage());
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
+		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 	}
 
 	/**

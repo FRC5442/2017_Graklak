@@ -1,9 +1,12 @@
 package org.usfirst.frc.team5442.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -51,6 +54,8 @@ public class RobotMap {
 	public static Encoder EncoderRight;
 	
 	
+	public static AHRS navX;
+	
 	public static PowerDistributionPanel pdp;
 	
 	
@@ -93,6 +98,8 @@ public class RobotMap {
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         **/
+		
+		navX = new AHRS(SerialPort.Port.kMXP);
 		
 		pdp = new PowerDistributionPanel();
 	}
