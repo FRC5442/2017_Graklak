@@ -6,10 +6,12 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DrivePID extends PIDSubsystem{
+	
+	public double drive_speed;
 
 	public DrivePID() {
 		super("DriveStraight", .1, 0, 0);
-		setAbsoluteTolerance(3.0);
+		setAbsoluteTolerance(1.0);
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -22,7 +24,8 @@ public class DrivePID extends PIDSubsystem{
 
 	@Override
 	protected void usePIDOutput(double output) {
-		RobotMap.driveTrainRobotDrive.drive(.75, output);		
+		RobotMap.driveTrainRobotDrive.drive(.75, output);	
+		SmartDashboard.putNumber("PID Output", output);
 		
 	}
 

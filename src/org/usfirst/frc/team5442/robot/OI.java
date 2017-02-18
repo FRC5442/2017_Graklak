@@ -49,8 +49,8 @@ public class OI {
 	 */
 	
 	
-	public static Joystick xboxController1;
-	public static Joystick xboxController2;
+	public static XboxController xboxController1;
+	public static XboxController xboxController2;
 	// Xbox Controller 1 Buttons
 	public JoystickButton xboxAButton;
 	public JoystickButton xboxBButton;
@@ -76,8 +76,8 @@ public class OI {
 	
 	public OI(){
 		// Setting Controller Order
-		xboxController1 = new Joystick(0);
-		xboxController2 = new Joystick(1);
+		xboxController1 = new XboxController(0);
+		xboxController2 = new XboxController(1);
 		
 		// Setting Controller 1 Buttons
 		xboxAButton = new JoystickButton(xboxController1, 1);
@@ -117,10 +117,10 @@ public class OI {
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
 **/
 	}
-	public Joystick getXboxController1() {
+	public XboxController getXboxController1() {
         return xboxController1;
     }
-	public Joystick getXboxController2() {
+	public XboxController getXboxController2() {
         return xboxController2;
     }
 }

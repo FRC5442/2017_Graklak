@@ -6,13 +6,17 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveStraightCmd extends Command{
 
 	double m_distance;
+	double m_speed;
 	
-	public DriveStraightCmd(double distance){
+	public DriveStraightCmd(double distance, double speed){
 		m_distance = distance;
+		m_speed = speed;
+
 	}
 	
 	protected void initialize(){
 		RobotMap.navX.reset();
+		Robot.drivePID.drive_speed = m_speed; 
 		Robot.drivePID.enable();
 		Robot.drivePID.setSetpoint(0);
 	}

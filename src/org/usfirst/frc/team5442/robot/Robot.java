@@ -12,6 +12,7 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
 import baseCommands.DrivePID;
+import baseCommands.DrivePIDCmdG;
 import baseCommands.DriveStraightCmd;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -63,8 +64,8 @@ public class Robot extends IterativeRobot {
 		
 		AutonomousModes = new SendableChooser();
 		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
+		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
-		AutonomousModes.addObject("DriveStraight PID", new DriveStraightCmd(5));
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
 	}
@@ -117,6 +118,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.getNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
 	}
 
 	@Override
@@ -139,6 +141,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("PDP Voltage", RobotMap.pdp.getVoltage());
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
+		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
 	}
 
 	/**
