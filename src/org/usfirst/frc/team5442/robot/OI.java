@@ -2,11 +2,15 @@ package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.commands.Eject;
 import org.usfirst.frc.team5442.robot.commands.Shoot;
+
+import baseCommands.DriveScreensteps;
+
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
 import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -45,8 +49,8 @@ public class OI {
 	 */
 	
 	
-	public static Joystick xboxController1;
-	public static Joystick xboxController2;
+	public static XboxController xboxController1;
+	public static XboxController xboxController2;
 	// Xbox Controller 1 Buttons
 	public JoystickButton xboxAButton;
 	public JoystickButton xboxBButton;
@@ -72,8 +76,8 @@ public class OI {
 	
 	public OI(){
 		// Setting Controller Order
-		xboxController1 = new Joystick(0);
-		xboxController2 = new Joystick(1);
+		xboxController1 = new XboxController(0);
+		xboxController2 = new XboxController(1);
 		
 		// Setting Controller 1 Buttons
 		xboxAButton = new JoystickButton(xboxController1, 1);
@@ -103,6 +107,7 @@ public class OI {
 		// Check if calling subsystems into OI works; See: GearManipulator.java
 		xboxXButton.whileHeld(new Gear_Arms_In());
 		xboxBButton.whileHeld(new Gear_Arms_Out());
+		xboxAButton.whileHeld(new DriveScreensteps());
 		
 		xbox2AButton.whileHeld(new Shoot());
 		xbox2BButton.whileHeld(new IntakeCmd());
@@ -112,10 +117,10 @@ public class OI {
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));
 **/
 	}
-	public Joystick getXboxController1() {
+	public XboxController getXboxController1() {
         return xboxController1;
     }
-	public Joystick getXboxController2() {
+	public XboxController getXboxController2() {
         return xboxController2;
     }
 }

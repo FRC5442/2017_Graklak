@@ -30,13 +30,13 @@ public class Drive_Command extends Command {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		Robot.driveTrain.RobotDrive(m_speedL, m_speedR);
+		DriveTrain.RobotDrive(m_speedL, m_speedR);
 	}
 
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		if (RobotMap.EncoderLeft.getDistance() < m_distance){
+		if (Math.abs(RobotMap.EncoderLeft.getDistance()) < m_distance){
 			return false;
 		}
 		else{
@@ -46,12 +46,12 @@ public class Drive_Command extends Command {
 	
 	@Override
 	protected void end() {
-		Robot.driveTrain.RobotDrive(0,0);
+		DriveTrain.RobotDrive(0,0);
 	}
 
 	@Override
 	protected void interrupted() {
-		Robot.driveTrain.RobotDrive(0,0);
+		DriveTrain.RobotDrive(0,0);
 	}
 
 }

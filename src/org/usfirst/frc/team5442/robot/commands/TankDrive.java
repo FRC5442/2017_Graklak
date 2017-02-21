@@ -25,6 +25,7 @@ public class  TankDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//if (OI.xboxController1.get)
     	DriveTrain.RobotDrive(-1*(OI.xboxController1.getRawAxis(1)), -1*(OI.xboxController1.getRawAxis(5)));
     	//DriveTrain.RobotDrive(1,1);
     	//DriveTrain.LeftDrive(OI.xboxController1.getRawAxis(1));

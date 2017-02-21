@@ -1,11 +1,17 @@
 package org.usfirst.frc.team5442.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -51,7 +57,11 @@ public class RobotMap {
 	public static Encoder EncoderRight;
 	
 	
+	public static AHRS navX;
+	
 	public static PowerDistributionPanel pdp;
+	
+	public static Ultrasonic ultra;
 	
 	
 	public static void init() {
@@ -83,7 +93,7 @@ public class RobotMap {
 		
 		
 		// Encoders, ports 2/3 and 4/5 
-		/**EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
+		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
         EncoderLeft.setSamplesToAverage(5);
         EncoderLeft.setDistancePerPulse(1.0/360);
@@ -92,9 +102,16 @@ public class RobotMap {
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Right", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
-        **/
+        
+		
+		navX = new AHRS(SerialPort.Port.kMXP);
 		
 		pdp = new PowerDistributionPanel();
+		
+		//TODO Change port numbers
+		DigitalOutput pingChannel = new DigitalOutput(0);
+		DigitalInput echoChannel = new DigitalInput(1);
+		ultra = new Ultrasonic(pingChannel, echoChannel);
 	}
 	
 	
