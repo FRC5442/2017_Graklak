@@ -14,6 +14,7 @@ import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
 import baseCommands.DriveStraightCmd;
+import baseCommands.GyroPID;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
@@ -38,7 +39,9 @@ public class Robot extends IterativeRobot {
 	public static GearManipulator gearManipulator;
 	public static Climb climb;
 	public static DrivePID drivePID;
-	SendableChooser AutonomousModes;
+	public static GyroPID gyroPID;
+	
+	SendableChooser<Command> AutonomousModes;
 	
 	
 	
@@ -61,8 +64,10 @@ public class Robot extends IterativeRobot {
 		gearManipulator = new GearManipulator();
 		climb = new Climb();
 		drivePID = new DrivePID();
-		
-		AutonomousModes = new SendableChooser();
+		drivePID.disable();
+		gyroPID = new GyroPID();
+		gyroPID.disable();
+		AutonomousModes = new SendableChooser<Command>();
 		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
 		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
@@ -142,6 +147,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
+		SmartDashboard.putNumber("Distance", RobotMap.ultra.getRangeInches());
 	}
 
 	/**
@@ -150,5 +156,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+		RobotMap.navX.reset();
 	}
 }

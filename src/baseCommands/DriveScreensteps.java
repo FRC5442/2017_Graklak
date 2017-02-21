@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveScreensteps extends Command{
 
-	double Kp = 0.75;
+	double Kp = 3;
 	double angle = RobotMap.navX.getAngle();
 	
 	protected void initialize(){
@@ -15,7 +15,7 @@ public class DriveScreensteps extends Command{
 	}
 	
 	protected void execute(){
-		RobotMap.driveTrainRobotDrive.drive(-.75, (-angle*Kp));
+		RobotMap.driveTrainRobotDrive.drive(-1, (-angle*Kp));
 	}
 	
 	@Override

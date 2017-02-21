@@ -20,14 +20,12 @@ public class GyroPID extends PIDSubsystem{
 	@Override
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
-		return 0;
+		return RobotMap.navX.getAngle();
 	}
 
 	@Override
 	protected void usePIDOutput(double output) {
-		sparkLeft.pidWrite(output);
-		sparkRight.pidWrite(output);
-		// TODO Auto-generated method stub
+		RobotMap.driveTrainRobotDrive.drive(0, output);
 		
 	}
 

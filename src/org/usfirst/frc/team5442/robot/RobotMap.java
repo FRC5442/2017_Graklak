@@ -3,12 +3,15 @@ package org.usfirst.frc.team5442.robot;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -58,6 +61,8 @@ public class RobotMap {
 	
 	public static PowerDistributionPanel pdp;
 	
+	public static Ultrasonic ultra;
+	
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
@@ -102,6 +107,11 @@ public class RobotMap {
 		navX = new AHRS(SerialPort.Port.kMXP);
 		
 		pdp = new PowerDistributionPanel();
+		
+		//TODO Change port numbers
+		DigitalOutput pingChannel = new DigitalOutput(0);
+		DigitalInput echoChannel = new DigitalInput(1);
+		ultra = new Ultrasonic(pingChannel, echoChannel);
 	}
 	
 	
