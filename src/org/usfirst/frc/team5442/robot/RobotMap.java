@@ -1,12 +1,11 @@
 package org.usfirst.frc.team5442.robot;
 
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import org.usfirst.frc.team5442.robot.subsystems.NetworkTable;
+
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -16,6 +15,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class RobotMap {
 	/** Speed Controllers */
+	public static NetworkTable piTable;
 	
 	/////Left Side
 	//public static Spark dtSparkController0;
@@ -55,6 +55,8 @@ public class RobotMap {
 	
 	
 	public static void init() {
+		piTable.setIPAddress("10.54.42.2");
+		NetworkTable piTable = NetworkTable.getTable("datatable");
 		// Change these Values here to the ports we eventually use on the robot   
 		
 		dTSparkControllerLeft = new Spark(0);

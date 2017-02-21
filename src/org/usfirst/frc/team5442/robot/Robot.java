@@ -10,10 +10,10 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -32,7 +32,7 @@ public class Robot extends IterativeRobot {
 	public static Intake intake;
 	public static GearManipulator gearManipulator;
 	public static Climb climb;
-	
+	public static NetworkTable table;	
 	
 	
 	Command autonomousCommand;
@@ -52,8 +52,9 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		gearManipulator = new GearManipulator();
 		climb = new Climb();
-		
-	}
+		NetworkTable table = new NetworkTable(RobotMap.piTable);
+	
+		}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
@@ -123,6 +124,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("PDP Voltage", RobotMap.pdp.getVoltage());
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
+		SmartDashboard.putNumber("area", RobotMap.piTable.getTable("piTable", table));
 	}
 
 	/**
