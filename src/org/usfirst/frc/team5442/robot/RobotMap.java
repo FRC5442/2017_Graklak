@@ -1,6 +1,9 @@
 package org.usfirst.frc.team5442.robot;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Servo;
@@ -23,13 +26,12 @@ public class RobotMap {
 	public static SpeedController dTSparkController2;
 	public static SpeedController dTSparkController3;
 	public static SpeedController dTSparkController4;
-	public static Servo testServo;
-	public static Spark spk1;
 	
 	//Sensors
 	public static Encoder EncoderLeft;
-	public static Encoder EncoderRight;
+	public static Encoder EncoderRight;	
 	
+	public static AnalogInput ultra;
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
@@ -39,9 +41,6 @@ public class RobotMap {
 		dTSparkController3 = new Spark(0);
 		dTSparkController4 = new Spark(4);
 		
-		spk1 = new Spark(1);
-		
-		testServo = new Servo(6);
 		// Set this to whatever works, really
 		driveTrainRobotDrive = new RobotDrive(dTSparkController1, dTSparkController2, dTSparkController3, dTSparkController4);
 		
@@ -56,6 +55,8 @@ public class RobotMap {
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
         
+        ultra = new AnalogInput(8);
+                
 	}
 	
 	

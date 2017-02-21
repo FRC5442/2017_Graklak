@@ -1,9 +1,6 @@
 
 package org.usfirst.frc.team5442.robot;
 
-import org.usfirst.frc.team5442.robot.commands.AutoTestThing;
-import org.usfirst.frc.team5442.robot.commands.ExampleAuto;
-import org.usfirst.frc.team5442.robot.commands.Turn_Left;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 
@@ -46,9 +43,7 @@ public class Robot extends IterativeRobot {
 		sensors = new Sensors();
 		
 		// Add auto modes here!
-		chooser.addObject("Example Auto Mode", new ExampleAuto());
-		chooser.addObject("Turn Left", new Turn_Left());
-		chooser.addDefault("Drive Forward", new AutoTestThing());
+		
 		SmartDashboard.putData("Auto mode", chooser);
 		
 	}
