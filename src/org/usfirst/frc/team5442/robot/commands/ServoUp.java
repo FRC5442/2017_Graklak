@@ -1,27 +1,19 @@
 package org.usfirst.frc.team5442.robot.commands;
 
-import org.usfirst.frc.team5442.robot.subsystems.Intake;
+import org.usfirst.frc.team5442.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Shoot extends Command{
+public class ServoUp extends Command{
 	
 	protected void execute(){
-		Intake.Intaking(-1, 1);
+		Robot.servoBar.move(0,90);
 	}
-
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	protected void end(){
-		Intake.Intaking(0, 0);
-	}
-	
-	protected void interrupted(){
-		Intake.Intaking(0, 0);
-	}
+
 
 }

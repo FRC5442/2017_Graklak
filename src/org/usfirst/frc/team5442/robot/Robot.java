@@ -10,6 +10,7 @@ import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
 import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
+import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
 
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
 	public static Climb climb;
 	public static DrivePID drivePID;
 	public static GyroPID gyroPID;
+	public static ServoBar servoBar;
 	
 	SendableChooser<Command> AutonomousModes;
 	
@@ -69,6 +71,8 @@ public class Robot extends IterativeRobot {
 		drivePID.disable();
 		gyroPID = new GyroPID();
 		gyroPID.disable();
+		servoBar = new ServoBar();
+		servoBar.move(0, 90);
 		AutonomousModes = new SendableChooser<Command>();
 		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
 		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
