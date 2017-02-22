@@ -4,8 +4,8 @@ package baseCommands;
 
 import org.usfirst.frc.team5442.robot.RobotMap;
 import org.usfirst.frc.team5442.robot.Robot;
+import baseCommands.GyroPID;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class TurnToAngleCmd extends Command{
@@ -20,6 +20,7 @@ public class TurnToAngleCmd extends Command{
 	}
 	
 	protected void initialize(){
+		GyroPID.turn_speed = m_speed;
 		RobotMap.navX.reset();
 		Robot.gyroPID.enable();
 		Robot.gyroPID.setSetpoint(m_setpoint);
@@ -28,13 +29,23 @@ public class TurnToAngleCmd extends Command{
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		if(Math.abs(Robot.gyroPID.returnPIDInput()) < 6){
+		if(Math.abs(Robot.gyroPID.returnPIDInput()) >= Math.abs(Robot.gyroPID.getSetpoint())){
 			return true;
 		}
 		
 		else{
 			return false;
 		}
+	}
+	
+	protected void end(){
+		Robot.gyroPID.disable();
+		RobotMap.driveTrainRobotDrive.tankDrive(0, 0);
+	}
+	
+	protected void interrupted(){
+		Robot.gyroPID.disable();
+		RobotMap.driveTrainRobotDrive.tankDrive(0, 0);
 	}
 
 }

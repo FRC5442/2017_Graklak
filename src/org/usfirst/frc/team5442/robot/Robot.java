@@ -14,7 +14,9 @@ import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
 import baseCommands.DriveStraightCmd;
+import baseCommands.Driveandturnanddrive;
 import baseCommands.GyroPID;
+import baseCommands.TurnToAngleCmdG;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
@@ -58,7 +60,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		sensors = new Sensors();
 		SmartDashboard.putData("Auto mode", chooser);
-		driveTrain = new DriveTrain();
+		//driveTrain = new DriveTrain();
 		//driveTrain.setExpiration(0.1);
 		intake = new Intake();
 		gearManipulator = new GearManipulator();
@@ -70,6 +72,8 @@ public class Robot extends IterativeRobot {
 		AutonomousModes = new SendableChooser<Command>();
 		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
 		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
+		AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
+		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
@@ -134,7 +138,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null){
 			autonomousCommand.cancel();}
-		
+		driveTrain = new DriveTrain();
 	}
 
 	/**

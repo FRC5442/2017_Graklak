@@ -10,9 +10,11 @@ public class GyroPID extends PIDSubsystem{
 	Spark sparkLeft = RobotMap.dTSparkControllerLeft;
 	Spark sparkRight = RobotMap.dTSparkControllerRight;
 	
+	public static double turn_speed;
+	
 	public GyroPID() {
-		super("Gyro PID", .1, 0, 0);
-		setAbsoluteTolerance(3.0);
+		super("Gyro PID", .5, 15, 0.1);
+		setAbsoluteTolerance(1.0);
 		getPIDController().setOutputRange(-1, 1);
 		LiveWindow.addActuator("Gyro PID", "Gyro", getPIDController());
 	}
@@ -25,7 +27,7 @@ public class GyroPID extends PIDSubsystem{
 
 	@Override
 	protected void usePIDOutput(double output) {
-		RobotMap.driveTrainRobotDrive.drive(0, output);
+		RobotMap.driveTrainRobotDrive.drive(turn_speed, output);
 		
 	}
 

@@ -12,7 +12,7 @@ public class DrivePID extends PIDSubsystem{
 	public double drive_speed;
 
 	public DrivePID() {
-		super("DriveStraight", 1, 0, 0);
+		super("DriveStraight", .01, 0.001, 0.0001);
 		setAbsoluteTolerance(10.0);
 		setOutputRange(-1, 1);
 		LiveWindow.addActuator("Drive Train", "Drive Straight", getPIDController());

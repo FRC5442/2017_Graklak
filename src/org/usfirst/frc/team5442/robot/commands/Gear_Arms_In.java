@@ -12,7 +12,7 @@ public class Gear_Arms_In extends Command{
 	}
 	
 	protected void execute(){
-		GearManipulator.Move(1);
+		GearManipulator.Move(.5);
 	}
 
 	@Override
