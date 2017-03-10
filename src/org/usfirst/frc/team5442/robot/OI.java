@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.commands.ClimbUp;
 import org.usfirst.frc.team5442.robot.commands.Eject;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
@@ -8,6 +9,7 @@ import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
 import org.usfirst.frc.team5442.robot.commands.ServoDown;
 import org.usfirst.frc.team5442.robot.commands.ServoUp;
 import org.usfirst.frc.team5442.robot.commands.Shoot;
+import org.usfirst.frc.team5442.robot.subsystems.Climb;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -104,14 +106,16 @@ public class OI {
 		//.whenPressed = run once when pressed, stop when conditions are met.
 		
 		// Check if calling subsystems into OI works; See: GearManipulator.java
-		xboxXButton.whileHeld(new Gear_Arms_In());
-		xboxBButton.whileHeld(new Gear_Arms_Out());
-		xboxLBumper.whileHeld(new ServoUp());
-		xboxRBumper.whileHeld(new ServoDown());
+		xboxRBumper.whileHeld(new Gear_Arms_In());
+		xboxLBumper.whileHeld(new Gear_Arms_Out(2));
+		
+		xbox2LBumper.whileHeld(new ServoUp());
+		xbox2RBumper.whileHeld(new ServoDown());
 		
 		xbox2AButton.whileHeld(new Shoot());
 		xbox2BButton.whileHeld(new IntakeCmd());
 		xbox2XButton.whileHeld(new Eject());
+		xbox2YButton.whileHeld(new ClimbUp());
 		
 		/**xboxBButton.whileHeld(new IntakeButton(1,-1));
 		xboxXButton.whileHeld(new IntakeButton(-1,-1));

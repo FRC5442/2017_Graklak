@@ -9,7 +9,7 @@ public class Climb extends Subsystem{
 	public static Spark climbMotor = RobotMap.climber;
 	
 	
-	public static void Climb(double speed){
+	public static void Climbing(double speed){
 		climbMotor.set(speed);
 	}
 	

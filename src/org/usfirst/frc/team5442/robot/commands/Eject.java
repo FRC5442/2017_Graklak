@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Eject extends Command{
 	
 	protected void execute(){
-		Intake.Intaking(-1, -1);
+		Intake.Intaking(-1, 1);
 	}
 
 	@Override

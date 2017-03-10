@@ -2,12 +2,20 @@ package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Gear_Arms_Out extends Command{
 
-	public Gear_Arms_Out() {
-		// TODO Auto-generated constructor stub
+	private Timer T1 = new Timer();
+	private double m_time;
+	
+	public Gear_Arms_Out(double time) {
+		m_time = time;// TODO Auto-generated constructor stub
+	}
+	protected void initialize(){
+		T1.reset();
+		T1.start();
 	}
 
 	protected void execute(){
@@ -17,7 +25,12 @@ public class Gear_Arms_Out extends Command{
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return false;
+		if (T1.get()< m_time){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 
 	protected void end(){

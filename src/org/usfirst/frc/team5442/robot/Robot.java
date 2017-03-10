@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team5442.robot;
 
-import org.usfirst.frc.team5442.robot.commands.AutoCrossBaseLine;
 import org.usfirst.frc.team5442.robot.commands.NoAuto;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
@@ -11,7 +10,7 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
-import org.usfirst.frc.team5442.robt.autoCommands.Red2;
+import org.usfirst.frc.team5442.robt.autoCommands.Blue2_Red2_Gear;
 
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
@@ -75,11 +74,10 @@ public class Robot extends IterativeRobot {
 		servoBar = new ServoBar();
 		servoBar.move(0, 90);
 		AutonomousModes = new SendableChooser<Command>();
-		AutonomousModes.addObject("Cross Baseline", new AutoCrossBaseLine());
 		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
 		AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
 		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
-		AutonomousModes.addObject("Red 2", new Red2());
+		AutonomousModes.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
