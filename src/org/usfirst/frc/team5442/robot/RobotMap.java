@@ -97,12 +97,12 @@ public class RobotMap {
 		servoRight = new Servo(7);
 		
 		// Encoders, ports 2/3 and 4/5 
-		EncoderLeft = new Encoder(2, 3, false, EncodingType.k4X);
+		EncoderLeft = new Encoder(3, 4, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
         EncoderLeft.setSamplesToAverage(5);
         EncoderLeft.setDistancePerPulse(1.0/360);
         
-        EncoderRight = new Encoder(4, 5, false, EncodingType.k4X);
+        EncoderRight = new Encoder(1, 2, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Right", EncoderRight);
         EncoderRight.setSamplesToAverage(5);
         EncoderRight.setDistancePerPulse(1.0/360);
@@ -113,9 +113,9 @@ public class RobotMap {
 		pdp = new PowerDistributionPanel();
 		
 		//TODO Change port numbers
-		DigitalOutput pingChannel = new DigitalOutput(0);
-		DigitalInput echoChannel = new DigitalInput(1);
-		ultra = new Ultrasonic(pingChannel, echoChannel);
+		//DigitalOutput pingChannel = new DigitalOutput(0);
+		//DigitalInput echoChannel = new DigitalInput(1);
+		//ultra = new Ultrasonic(pingChannel, echoChannel);
 	}
 	
 	

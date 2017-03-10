@@ -11,6 +11,7 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
+import org.usfirst.frc.team5442.robt.autoCommands.Red2;
 
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
@@ -78,6 +79,7 @@ public class Robot extends IterativeRobot {
 		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
 		AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
 		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
+		AutonomousModes.addObject("Red 2", new Red2());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
@@ -111,6 +113,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
+		RobotMap.EncoderLeft.reset();
+		RobotMap.EncoderRight.reset();
 		//RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -155,7 +159,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
-		SmartDashboard.putNumber("Distance", RobotMap.ultra.getRangeInches());
+		//SmartDashboard.putNumber("Distance", RobotMap.ultra.getRangeInches());
 	}
 
 	/**
