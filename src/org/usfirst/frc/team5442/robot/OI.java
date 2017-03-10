@@ -107,7 +107,7 @@ public class OI {
 		
 		// Check if calling subsystems into OI works; See: GearManipulator.java
 		xboxRBumper.whileHeld(new Gear_Arms_In());
-		xboxLBumper.whileHeld(new Gear_Arms_Out(2));
+		xboxLBumper.whileHeld(new Gear_Arms_Out(10));
 		
 		xbox2LBumper.whileHeld(new ServoUp());
 		xbox2RBumper.whileHeld(new ServoDown());

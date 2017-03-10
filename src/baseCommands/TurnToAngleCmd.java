@@ -26,6 +26,10 @@ public class TurnToAngleCmd extends Command{
 		Robot.gyroPID.setSetpoint(m_setpoint);
 	}
 	
+	protected void execute(){
+		
+	}
+	
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub

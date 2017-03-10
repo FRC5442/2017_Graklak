@@ -11,6 +11,7 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
 import org.usfirst.frc.team5442.robt.autoCommands.Blue2_Red2_Gear;
+import org.usfirst.frc.team5442.robt.autoCommands.Red1_Gear;
 
 import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
@@ -71,6 +72,7 @@ public class Robot extends IterativeRobot {
 		drivePID.disable();
 		gyroPID = new GyroPID();
 		gyroPID.disable();
+		RobotMap.navX.reset();
 		servoBar = new ServoBar();
 		servoBar.move(0, 90);
 		AutonomousModes = new SendableChooser<Command>();
@@ -78,6 +80,7 @@ public class Robot extends IterativeRobot {
 		AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
 		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
 		AutonomousModes.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
+		AutonomousModes.addObject("Red 1 Gear", new Red1_Gear());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		
