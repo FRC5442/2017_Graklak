@@ -1,4 +1,4 @@
-package baseCommands;
+package org.usfirst.frc.team5442.robot.subsystems;
 
 import org.usfirst.frc.team5442.robot.RobotMap;
 
@@ -13,14 +13,14 @@ public class GyroPID extends PIDSubsystem{
 	public static double turn_speed;
 	
 	public GyroPID() {
-		super("Gyro PID", .5, 15, 0.1);
+		super("Gyro PID", .5, 10, 0.1);
 		setAbsoluteTolerance(1.0);
 		getPIDController().setOutputRange(-1, 1);
 		LiveWindow.addActuator("Gyro PID", "Gyro", getPIDController());
 	}
 
 	@Override
-	protected double returnPIDInput() {
+	public double returnPIDInput() {
 		// TODO Auto-generated method stub
 		return RobotMap.navX.getAngle();
 	}

@@ -1,26 +1,25 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.autoCommands.Blue1_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Blue2_Red2_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Red1_Gear;
 import org.usfirst.frc.team5442.robot.commands.NoAuto;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
+import org.usfirst.frc.team5442.robot.subsystems.DrivePID;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
+import org.usfirst.frc.team5442.robot.subsystems.GyroPID;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
-import org.usfirst.frc.team5442.robt.autoCommands.Blue2_Red2_Gear;
-import org.usfirst.frc.team5442.robt.autoCommands.Red1_Gear;
 
-import baseCommands.DrivePID;
 import baseCommands.DrivePIDCmdG;
-import baseCommands.DriveStraightCmd;
 import baseCommands.Driveandturnanddrive;
-import baseCommands.GyroPID;
 import baseCommands.TurnToAngleCmdG;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -81,6 +80,7 @@ public class Robot extends IterativeRobot {
 		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
 		AutonomousModes.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
 		AutonomousModes.addObject("Red 1 Gear", new Red1_Gear());
+		AutonomousModes.addObject("Testing345", new Blue1_Gear());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		

@@ -1,6 +1,7 @@
 package baseCommands;
 
 import org.usfirst.frc.team5442.robot.*;
+import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,7 +21,8 @@ public class DriveStraightCmd extends Command{
 	}
 	
 	protected void initialize(){
-		
+		RobotMap.EncoderLeft.reset();
+		RobotMap.EncoderRight.reset();
 		t.reset();
 		t.start();
 		RobotMap.navX.reset();
@@ -36,23 +38,23 @@ public class DriveStraightCmd extends Command{
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		/**if(Math.abs(RobotMap.EncoderLeft.getDistance()) < m_distance){
-			return true;
+		if(Math.abs(RobotMap.EncoderLeft.getDistance()) < m_distance){
+			return false;
 		}
 		else {
-			return false;
-		}**/
-		if(t.get() > m_time){
+			return true;
+		}
+		/**if(t.get() > m_time){
 			return true;
 		}
 		else{
 			return false;
-		}
+		}**/
 	}
 	
 	protected void end(){
 		Robot.drivePID.disable();
-		Robot.driveTrain.RobotDrive(0, 0);
+		DriveTrain.RobotDrive(0, 0);
 	}
 
 }

@@ -3,8 +3,8 @@ package baseCommands;
 
 
 import org.usfirst.frc.team5442.robot.RobotMap;
+import org.usfirst.frc.team5442.robot.subsystems.GyroPID;
 import org.usfirst.frc.team5442.robot.Robot;
-import baseCommands.GyroPID;
 
 import edu.wpi.first.wpilibj.command.Command;
 

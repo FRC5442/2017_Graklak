@@ -9,8 +9,6 @@ import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
 import org.usfirst.frc.team5442.robot.commands.ServoDown;
 import org.usfirst.frc.team5442.robot.commands.ServoUp;
 import org.usfirst.frc.team5442.robot.commands.Shoot;
-import org.usfirst.frc.team5442.robot.subsystems.Climb;
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
