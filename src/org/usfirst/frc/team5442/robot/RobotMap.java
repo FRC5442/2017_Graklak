@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -41,7 +42,7 @@ public class RobotMap {
 	public static Spark gearMotor;
 	
 	//Read the Variable
-	public static Spark climber;
+	public static Talon climber;
 	
 	//Drive Train
 	public static RobotDrive driveTrainRobotDrive;
@@ -69,19 +70,7 @@ public class RobotMap {
 		dTSparkControllerLeft = new Spark(0);
 		dTSparkControllerRight = new Spark(1);
 		
-		////// Only Use if 1 speed controller = 1 port
-		
-		//// Left Motor controllers
-		//dtSparkController0 = new Spark(0);
-		//dtSparkController1 = new Spark(1);
-		//dtSparkController2 = new Spark(2);
-		
-		//// Right Motor Controllers
-		//dtSparkController3 = new Spark(3);
-		//dtSparkController4 = new Spark(4);
-		//dtSparkController5 = new Spark(5);
-		
-		climber = new Spark(2);
+		climber = new Talon(2);
 		intake = new Spark(3);
 		conveyor = new Spark(4);
 		gearMotor = new Spark(5);
