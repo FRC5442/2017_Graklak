@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5442.robot.commands;
 
+import org.usfirst.frc.team5442.robot.OI;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -11,7 +12,7 @@ public class ClimbUp extends Command{
 	}
 
 	protected void execute(){
-		Climb.Climbing(1);
+		Climb.Climbing(OI.xboxController2.getRawAxis(0));
 	}
 	
 	@Override
