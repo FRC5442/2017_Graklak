@@ -3,7 +3,11 @@ package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.autoCommands.Blue1_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue2_Red2_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Blue3_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Blue_Boiler_Auto;
 import org.usfirst.frc.team5442.robot.autoCommands.Red1_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Red3_Gear;
+import org.usfirst.frc.team5442.robot.autoCommands.Red_Boiler_Auto;
 import org.usfirst.frc.team5442.robot.commands.NoAuto;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DrivePID;
@@ -75,12 +79,16 @@ public class Robot extends IterativeRobot {
 		servoBar = new ServoBar();
 		servoBar.move(0, 90);
 		AutonomousModes = new SendableChooser<Command>();
-		AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
-		AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
-		AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
+		//AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
+		//AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
+		//AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
 		AutonomousModes.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
 		AutonomousModes.addObject("Red 1 Gear", new Red1_Gear());
-		AutonomousModes.addObject("Testing345", new Blue1_Gear());
+		AutonomousModes.addObject("Red 3 Gear", new Red3_Gear());
+		AutonomousModes.addObject("Blue 1 Gear", new Blue1_Gear());
+		AutonomousModes.addObject("Blue 3 Gear", new Blue3_Gear());
+		AutonomousModes.addObject("Red Boiler", new Red_Boiler_Auto());
+		AutonomousModes.addObject("BlueBoiler", new Blue_Boiler_Auto());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
 		

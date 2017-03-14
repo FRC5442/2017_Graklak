@@ -11,7 +11,7 @@ public class Gear_Arms_Out extends Command{
 	private double m_time;
 	
 	public Gear_Arms_Out(double time) {
-		m_time = time;// TODO Auto-generated constructor stub
+		m_time = time;
 	}
 	protected void initialize(){
 		T1.reset();
@@ -19,18 +19,12 @@ public class Gear_Arms_Out extends Command{
 	}
 
 	protected void execute(){
-		GearManipulator.Move(-.5);
+		GearManipulator.Move(.5);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		if (T1.get()< m_time){
-			return false;
-		}
-		else{
-			return true;
-		}
+		return m_time < T1.get();
 	}
 
 	protected void end(){

@@ -11,7 +11,7 @@ public class DrivePID extends PIDSubsystem{
 	public double drive_speed;
 
 	public DrivePID() {
-		super("DriveStraight", .01, 0.001, 0.0001);
+		super("DriveStraight", .01, 0.00, 0.000);
 		setAbsoluteTolerance(10.0);
 		setOutputRange(-1, 1);
 		LiveWindow.addActuator("Drive Train", "Drive Straight", getPIDController());
@@ -26,8 +26,8 @@ public class DrivePID extends PIDSubsystem{
 
 	@Override
 	protected void usePIDOutput(double output) {
-		RobotMap.driveTrainRobotDrive.drive(drive_speed, output);	
-		SmartDashboard.putNumber("PID Output", output);
+		RobotMap.driveTrainRobotDrive.drive(drive_speed, -output);	
+		//SmartDashboard.putNumber("PID Output", output);
 		
 	}
 

@@ -1,38 +1,42 @@
 package org.usfirst.frc.team5442.robot.commands;
 
-import org.usfirst.frc.team5442.robot.subsystems.GearManipulator;
+import org.usfirst.frc.team5442.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Gear_Arms_In extends Command{
-
-	private Timer T1 = new Timer();
-	private double m_time;
+public class ShootAuto extends Command{
 	
-	public Gear_Arms_In(double time) {
+	private double m_time;
+	private Timer T4818 = new Timer();
+	
+	
+	
+	public ShootAuto(double time){
 		m_time = time;
 	}
 	
-	protected void initialize(){
-		T1.reset();
-		T1.start();
-	}
 	
+	protected void initialize(){
+		T4818.reset();
+		T4818.start();
+	}
 	protected void execute(){
-		GearManipulator.Move(-.5);
+		Intake.Intaking(-1, -1);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return m_time < T1.get();
+		// TODO Auto-generated method stub
+		return m_time < T4818.get();
 	}
-
+	
 	protected void end(){
-		GearManipulator.Move(0);
+		Intake.Intaking(0, 0);
 	}
 	
 	protected void interrupted(){
-		GearManipulator.Move(0);
+		Intake.Intaking(0, 0);
 	}
+
 }

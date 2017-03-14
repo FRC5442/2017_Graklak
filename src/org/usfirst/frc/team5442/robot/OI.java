@@ -104,8 +104,8 @@ public class OI {
 		//.whenPressed = run once when pressed, stop when conditions are met.
 		
 		// Check if calling subsystems into OI works; See: GearManipulator.java
-		xboxRBumper.whileHeld(new Gear_Arms_In());
-		xboxLBumper.whileHeld(new Gear_Arms_Out(10));
+		xboxRBumper.whileHeld(new Gear_Arms_In(4));
+		xboxLBumper.whileHeld(new Gear_Arms_Out(4));
 		
 		xbox2LBumper.whileHeld(new ServoUp());
 		xbox2RBumper.whileHeld(new ServoDown());
