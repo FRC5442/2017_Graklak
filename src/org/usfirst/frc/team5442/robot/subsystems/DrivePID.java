@@ -11,7 +11,7 @@ public class DrivePID extends PIDSubsystem{
 
 	public DrivePID() {
 		super("DriveStraight", .01, 0.00, 0.000);
-		setAbsoluteTolerance(10.0);
+		setAbsoluteTolerance(5.0);
 		setOutputRange(-1, 1);
 		LiveWindow.addActuator("Drive Train", "Drive Straight", getPIDController());
 		// TODO Auto-generated constructor stub
