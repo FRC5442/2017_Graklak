@@ -6,10 +6,10 @@ import org.usfirst.frc.team5442.robot.autoCommands.Blue1_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue2_Red2_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue3_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue_Boiler_Auto;
+import org.usfirst.frc.team5442.robot.autoCommands.NoAuto;
 import org.usfirst.frc.team5442.robot.autoCommands.Red1_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Red3_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Red_Boiler_Auto;
-import org.usfirst.frc.team5442.robot.commands.NoAuto;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DrivePID;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
@@ -51,12 +51,12 @@ public class Robot extends IterativeRobot {
 	public static GyroPID gyroPID;
 	public static ServoBar servoBar;
 	
-	SendableChooser<Command> AutonomousModes;
 	
 	
 	
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	SendableChooser<Command> autoChooser;
+
 
 	//public static CameraServer server;
     int session;
@@ -71,7 +71,6 @@ public class Robot extends IterativeRobot {
 		RobotMap.init();
 		oi = new OI();
 		sensors = new Sensors();
-		SmartDashboard.putData("Auto mode", chooser);
 		//driveTrain = new DriveTrain();
 		//driveTrain.setExpiration(0.1);
 		intake = new Intake();
@@ -85,20 +84,22 @@ public class Robot extends IterativeRobot {
 		RobotMap.navX.reset();
 		servoBar = new ServoBar();
 		servoBar.move(0, 90);
-		AutonomousModes = new SendableChooser<Command>();
-		//AutonomousModes.addObject("DrivePID", new DrivePIDCmdG());
-		//AutonomousModes.addObject("Turn90deg", new TurnToAngleCmdG());
-		//AutonomousModes.addObject("Driveandturnanddrive", new Driveandturnanddrive());
-		AutonomousModes.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
-		AutonomousModes.addObject("Red 1 Gear", new Red1_Gear());
-		AutonomousModes.addObject("Red 3 Gear", new Red3_Gear());
-		AutonomousModes.addObject("Blue 1 Gear", new Blue1_Gear());
-		AutonomousModes.addObject("Blue 3 Gear", new Blue3_Gear());
-		AutonomousModes.addObject("Red Boiler", new Red_Boiler_Auto());
-		AutonomousModes.addObject("BlueBoiler", new Blue_Boiler_Auto());
-		AutonomousModes.addObject("BaselineAuto", new BaselineAuto());
-		AutonomousModes.addDefault("No Auto", new NoAuto());
-		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
+		autoChooser = new SendableChooser<Command>();
+		//autoChooser.addObject("DrivePID", new DrivePIDCmdG());
+		//autoChooser.addObject("Turn90deg", new TurnToAngleCmdG());
+		//autoChooser.addObject("Driveandturnanddrive", new Driveandturnanddrive());
+		autoChooser.addObject("Red 2 and Blue 2", new Blue2_Red2_Gear());
+		autoChooser.addObject("Red 1 Gear", new Red1_Gear());
+		autoChooser.addObject("Red 3 Gear", new Red3_Gear());
+		autoChooser.addObject("Blue 1 Gear", new Blue1_Gear());
+		autoChooser.addObject("Blue 3 Gear", new Blue3_Gear());
+		autoChooser.addObject("Red Boiler", new Red_Boiler_Auto());
+		autoChooser.addObject("BlueBoiler", new Blue_Boiler_Auto());
+		autoChooser.addObject("BaselineAuto", new BaselineAuto());
+		autoChooser.addDefault("No Auto", new NoAuto());
+		SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+		//SmartDashboard.putData("Auto mode", autoChooser);
+
 		/*
 		CameraServer server2;
         
@@ -144,7 +145,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 		RobotMap.EncoderLeft.reset();
 		RobotMap.EncoderRight.reset();
 		//RobotMap.driveTrainRobotDrive.setSafetyEnabled(false);
@@ -156,9 +157,11 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) autonomousCommand.start();
-        autonomousCommand = (Command) AutonomousModes.getSelected();
-        autonomousCommand.start();
+		if (autonomousCommand != null) 
+			autonomousCommand.start();
+
+        //autonomousCommand = (Command) autoChooser.getSelected();
+        //autonomousCommand.start();
 	}
 
 	/**
@@ -190,8 +193,31 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("PDP Voltage", RobotMap.pdp.getVoltage());
 		SmartDashboard.putNumber("PDP Total Current", RobotMap.pdp.getTotalCurrent());
+		SmartDashboard.putNumber("Power", RobotMap.pdp.getTotalPower());
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
+		// Ports for PDP
+		/*
+		SmartDashboard.putNumber("PDP Port0", RobotMap.pdp.getCurrent(0));
+		SmartDashboard.putNumber("PDP Port1", RobotMap.pdp.getCurrent(1));
+		SmartDashboard.putNumber("PDP Port2", RobotMap.pdp.getCurrent(2));
+		SmartDashboard.putNumber("PDP Port3", RobotMap.pdp.getCurrent(3));
+		SmartDashboard.putNumber("PDP Port4", RobotMap.pdp.getCurrent(4));
+		SmartDashboard.putNumber("PDP Port5", RobotMap.pdp.getCurrent(5));
+		SmartDashboard.putNumber("PDP Port6", RobotMap.pdp.getCurrent(6));
+		SmartDashboard.putNumber("PDP Port7", RobotMap.pdp.getCurrent(7));
+		SmartDashboard.putNumber("PDP Port8", RobotMap.pdp.getCurrent(8));
+		SmartDashboard.putNumber("PDP Port9", RobotMap.pdp.getCurrent(9));
+		SmartDashboard.putNumber("PDP Port10", RobotMap.pdp.getCurrent(10));
+		SmartDashboard.putNumber("PDP Port11", RobotMap.pdp.getCurrent(11));
+		SmartDashboard.putNumber("PDP Port12", RobotMap.pdp.getCurrent(12));
+		SmartDashboard.putNumber("PDP Port13", RobotMap.pdp.getCurrent(13));
+		SmartDashboard.putNumber("PDP Port14", RobotMap.pdp.getCurrent(14));
+		SmartDashboard.putNumber("PDP Port15", RobotMap.pdp.getCurrent(15));
+		*/
+		
+		
+		
 		//SmartDashboard.putNumber("Distance", RobotMap.ultra.getRangeInches());
 		if(RobotMap.pdp.getCurrent(/*climberMotor*/7) < /*get value here*/ 0){
 			OI.xboxController2.setRumble(GenericHID.RumbleType.kLeftRumble, 1);

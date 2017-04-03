@@ -6,6 +6,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class BaselineAuto extends CommandGroup{
 
 	public BaselineAuto() {
-		addSequential(new DriveStraightCmd(13, -.4, -.4));
+		addSequential(new DriveStraightCmd(14, -.4, -.4));
 	}
 }
