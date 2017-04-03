@@ -50,8 +50,7 @@ public class Robot extends IterativeRobot {
 	public static DrivePID drivePID;
 	public static GyroPID gyroPID;
 	public static ServoBar servoBar;
-	
-	
+		
 	
 	
 	Command autonomousCommand;
