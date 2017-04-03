@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5442.robot;
 
+import org.usfirst.frc.team5442.robot.autoCommands.BaselineAuto;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue1_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue2_Red2_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Blue3_Gear;
@@ -20,9 +21,10 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
 
-import baseCommands.DrivePIDCmdG;
-import baseCommands.Driveandturnanddrive;
-import baseCommands.TurnToAngleCmdG;
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
+
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -56,6 +58,10 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
+	//public static CameraServer server;
+    int session;
+    Image frame;
+    NIVision.Rect rect;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -71,6 +77,7 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		gearManipulator = new GearManipulator();
 		climb = new Climb();
+		//cameras.init();
 		drivePID = new DrivePID();
 		drivePID.disable();
 		gyroPID = new GyroPID();
@@ -89,8 +96,24 @@ public class Robot extends IterativeRobot {
 		AutonomousModes.addObject("Blue 3 Gear", new Blue3_Gear());
 		AutonomousModes.addObject("Red Boiler", new Red_Boiler_Auto());
 		AutonomousModes.addObject("BlueBoiler", new Blue_Boiler_Auto());
+		AutonomousModes.addObject("BaselineAuto", new BaselineAuto());
 		AutonomousModes.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", AutonomousModes);
+		/*
+		CameraServer server2;
+        
+        server = CameraServer.getInstance();
+        if (CameraServer.getInstance() == null) {
+        	
+        } else {
+        	server = CameraServer.getInstance();
+        	server.setQuality(25);
+            server.startAutomaticCapture("cam2");
+        	server2 = CameraServer.getInstance();
+        	server2.setQuality(25);
+            server2.startAutomaticCapture("cam1");
+            }
+          */  
 		
 	}
 	/**
@@ -156,6 +179,7 @@ public class Robot extends IterativeRobot {
 		if (autonomousCommand != null){
 			autonomousCommand.cancel();}
 		driveTrain = new DriveTrain();
+		
 	}
 
 	/**
@@ -169,6 +193,14 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
 		//SmartDashboard.putNumber("Distance", RobotMap.ultra.getRangeInches());
+		if(RobotMap.pdp.getCurrent(/*climberMotor*/7) < /*get value here*/ 0){
+			OI.xboxController2.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+		}
+		else{
+			OI.xboxController2.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
+		}
+		//cameras.updateCam();
+
 	}
 
 	/**

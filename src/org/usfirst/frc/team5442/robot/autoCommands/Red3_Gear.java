@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Red3_Gear extends CommandGroup{
 
 	public Red3_Gear() {
-		addSequential(new DriveStraightCmd(17, -.5, 2));
-		addParallel(new TurnToAngleCmd(.25, 55));
+		addSequential(new DriveStraightCmd(19.5, -.4, 2));
+		addParallel(new TurnToAngleCmd(.3, 51));
 		addSequential(new Timer_Command(2));
-		addSequential(new Drive_Command(7.5, -.65, -.65));
+		addSequential(new DriveStraightCmd(3.75, -.35, -.4));
 		addSequential(new Gear_Arms_Out(2));
-		addSequential(new Drive_Command(5, .6, .6));
+		addSequential(new Drive_Command(5, .4, .4));
 	}
 }

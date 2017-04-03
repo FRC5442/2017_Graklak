@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Blue2_Red2_Gear extends CommandGroup{
 
 	public Blue2_Red2_Gear() {
-		addSequential(new DriveStraightCmd(16, -.6, -.6));
-		addSequential(new Gear_Arms_Out(5));
-		addSequential(new Drive_Command(5, .6, .6));
+		addSequential(new DriveStraightCmd(16, -.4, -.4));
+		addSequential(new Gear_Arms_Out(2));
+		addSequential(new Drive_Command(5, .4, .4));
 	}
 
 }
