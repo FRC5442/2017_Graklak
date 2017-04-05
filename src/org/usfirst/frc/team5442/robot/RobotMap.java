@@ -35,7 +35,11 @@ public class RobotMap {
 	//public static Spark dtSparkController5;
 	public static Spark dTSparkControllerRight;
 	
-	//Intake Systems
+	//Gear Intake Systems
+	public static Spark floorGearIntake;
+	public static Spark gearIntakeLiftMotor;
+	
+	//Ball Intake Systems
 	public static Spark intake;
 	public static Spark conveyor;
 	
@@ -72,8 +76,10 @@ public class RobotMap {
 		dTSparkControllerRight = new Spark(1);
 		
 		climber = new Talon(2);
-		intake = new Spark(3);
-		conveyor = new Spark(4);
+		floorGearIntake = new Spark(3);
+		//intake = new Spark(3);
+		gearIntakeLiftMotor = new Spark(4);
+		//conveyor = new Spark(4);
 		gearMotor = new Spark(5);
 		
 		// Set this to whatever works, really
