@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class FloorGearIntake extends Subsystem{
 
 	private static Spark floorGearIntakeMotor = RobotMap.floorGearIntake;
-	public static Spark Raise = RobotMap.gearIntakeLiftMotor;
+	private static Spark Raise = RobotMap.gearIntakeLiftMotor;
 	
 	public static void floorGearIntaking(double gearIntake_speed){
 		floorGearIntakeMotor.set(gearIntake_speed);

@@ -6,9 +6,9 @@ import baseCommands.DriveStraightCmd;
 import baseCommands.Timer_Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class Blue2_Red2_Gear extends CommandGroup{
+public class Middle_Gear extends CommandGroup{
 
-	public Blue2_Red2_Gear() {
+	public Middle_Gear() {
 		addSequential(new DriveStraightCmd(16.5, -.3, -.3));
 		addSequential(new Timer_Command(.5));
 		addSequential(new Gear_Arms_Out(2));

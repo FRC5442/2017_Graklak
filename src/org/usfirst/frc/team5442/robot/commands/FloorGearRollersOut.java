@@ -1,14 +1,13 @@
 package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.subsystems.FloorGearIntake;
-import org.usfirst.frc.team5442.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class FloorGearIntakeCmd extends Command {
+public class FloorGearRollersOut extends Command{
 
 	protected void execute(){
-		FloorGearIntake.floorGearIntaking(.5);
+		FloorGearIntake.floorGearIntaking(.75);
 	}
 	
 	@Override
@@ -23,5 +22,5 @@ public class FloorGearIntakeCmd extends Command {
 	protected void interrupted(){
 		FloorGearIntake.floorGearIntaking(0);
 	}
-	
+
 }
