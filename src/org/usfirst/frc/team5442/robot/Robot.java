@@ -201,7 +201,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Yaw", RobotMap.navX.getAngle());
 		SmartDashboard.putNumber("EncoderLeft", RobotMap.EncoderLeft.getDistance());
 		// Ports for PDP
-		/*
+		
 		SmartDashboard.putNumber("PDP Port0", RobotMap.pdp.getCurrent(0));
 		SmartDashboard.putNumber("PDP Port1", RobotMap.pdp.getCurrent(1));
 		SmartDashboard.putNumber("PDP Port2", RobotMap.pdp.getCurrent(2));
@@ -218,7 +218,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("PDP Port13", RobotMap.pdp.getCurrent(13));
 		SmartDashboard.putNumber("PDP Port14", RobotMap.pdp.getCurrent(14));
 		SmartDashboard.putNumber("PDP Port15", RobotMap.pdp.getCurrent(15));
-		*/
+		
 		
 		
 		

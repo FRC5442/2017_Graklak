@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class DrivePID extends PIDSubsystem{
 	
 	public double drive_speed;
+	public int direction;
 
 	public DrivePID() {
 		super("DriveStraight", .01, 0.00, 0.000);
@@ -25,7 +26,7 @@ public class DrivePID extends PIDSubsystem{
 
 	@Override
 	protected void usePIDOutput(double output) {
-		RobotMap.driveTrainRobotDrive.drive(drive_speed, -output);	
+		RobotMap.driveTrainRobotDrive.drive(drive_speed, direction*output);	
 		//SmartDashboard.putNumber("PID Output", output);
 		
 	}

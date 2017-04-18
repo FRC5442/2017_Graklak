@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Middle_Gear extends CommandGroup{
 
 	public Middle_Gear() {
-		addSequential(new DriveStraightCmd(16.5, -.3, -.3));
+		addSequential(new DriveStraightCmd(16.5, -.35, -.3, -1));
 		addSequential(new Timer_Command(.5));
-		addSequential(new Gear_Arms_Out(2));
-		addSequential(new DriveStraightCmd(5, .3, .3));
+		addSequential(new Gear_Arms_Out(1.25));
+		addSequential(new DriveStraightCmd(5, .3, .3, 1));
 	}
 
 }

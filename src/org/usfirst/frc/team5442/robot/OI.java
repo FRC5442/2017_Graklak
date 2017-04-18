@@ -3,19 +3,14 @@ package org.usfirst.frc.team5442.robot;
 
 import org.usfirst.frc.team5442.robot.commands.ClimbFull;
 import org.usfirst.frc.team5442.robot.commands.ClimbUp;
-import org.usfirst.frc.team5442.robot.commands.Eject;
 import org.usfirst.frc.team5442.robot.commands.FloorGearRollers;
 import org.usfirst.frc.team5442.robot.commands.FloorGearRollersOut;
 import org.usfirst.frc.team5442.robot.commands.GearLiftDown;
 import org.usfirst.frc.team5442.robot.commands.GearLiftUp;
-import org.usfirst.frc.team5442.robot.commands.GearLift;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
-import org.usfirst.frc.team5442.robot.commands.IntakeCmd;
 import org.usfirst.frc.team5442.robot.commands.ServoDown;
 import org.usfirst.frc.team5442.robot.commands.ServoUp;
-import org.usfirst.frc.team5442.robot.commands.Shoot;
-
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 

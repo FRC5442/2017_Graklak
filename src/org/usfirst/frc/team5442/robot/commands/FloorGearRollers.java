@@ -1,8 +1,6 @@
 package org.usfirst.frc.team5442.robot.commands;
 
 import org.usfirst.frc.team5442.robot.subsystems.FloorGearIntake;
-import org.usfirst.frc.team5442.robot.subsystems.Intake;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class FloorGearRollers extends Command {

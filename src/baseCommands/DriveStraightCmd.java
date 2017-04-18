@@ -11,13 +11,14 @@ public class DriveStraightCmd extends Command{
 	double m_distance;
 	double m_speed;
 	double m_time;
+	int m_direction;
 	Timer t = new Timer();
 	
-	public DriveStraightCmd(double distance, double speed, double time){
+	public DriveStraightCmd(double distance, double speed, double time, int direction){
 		m_distance = distance;
 		m_speed = speed;
 		m_time = time;
-
+		m_direction = direction;
 	}
 	
 	protected void initialize(){
@@ -26,6 +27,7 @@ public class DriveStraightCmd extends Command{
 		t.reset();
 		t.start();
 		RobotMap.navX.reset();
+		Robot.drivePID.direction = m_direction;
 		Robot.drivePID.drive_speed = m_speed; 
 		Robot.drivePID.enable();
 		Robot.drivePID.setSetpoint(0);
