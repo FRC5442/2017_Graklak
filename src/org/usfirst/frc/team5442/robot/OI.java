@@ -9,8 +9,6 @@ import org.usfirst.frc.team5442.robot.commands.GearLiftDown;
 import org.usfirst.frc.team5442.robot.commands.GearLiftUp;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_In;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
-import org.usfirst.frc.team5442.robot.commands.ServoDown;
-import org.usfirst.frc.team5442.robot.commands.ServoUp;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -108,9 +106,6 @@ public class OI {
 		// Check if calling subsystems into OI works; See: GearManipulator.java
 		xboxRBumper.whileHeld(new Gear_Arms_In(4));
 		xboxLBumper.whileHeld(new Gear_Arms_Out(4));
-		
-		xbox2LBumper.whileHeld(new ServoUp());
-		xbox2RBumper.whileHeld(new ServoDown());
 		
 		//xbox2AButton.whileHeld(new Shoot());
 		//xbox2BButton.whileHeld(new IntakeCmd());

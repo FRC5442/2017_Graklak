@@ -21,8 +21,6 @@ import org.usfirst.frc.team5442.robot.subsystems.GyroPID;
 import org.usfirst.frc.team5442.robot.subsystems.Intake;
 //import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
-import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
-
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
 
@@ -51,7 +49,6 @@ public class Robot extends IterativeRobot {
 	public static Climb climb;
 	public static DrivePID drivePID;
 	public static GyroPID gyroPID;
-	public static ServoBar servoBar;
 	
 	
 	
@@ -84,8 +81,6 @@ public class Robot extends IterativeRobot {
 		gyroPID = new GyroPID();
 		gyroPID.disable();
 		RobotMap.navX.reset();
-		servoBar = new ServoBar();
-		servoBar.move(0, 90);
 		autoChooser = new SendableChooser<Command>();
 		//autoChooser.addObject("DrivePID", new DrivePIDCmdG());
 		//autoChooser.addObject("Turn90deg", new TurnToAngleCmdG());

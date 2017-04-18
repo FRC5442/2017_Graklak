@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SerialPort;
-import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
@@ -54,9 +53,6 @@ public class RobotMap {
 	public static RobotDrive rightSparks;
 	public static RobotDrive leftSparks;
 	
-	public static Servo servoLeft;
-	public static Servo servoRight;
-	
 	/** Encoders */
 	public static Encoder EncoderLeft;
 	public static Encoder EncoderRight;
@@ -86,10 +82,6 @@ public class RobotMap {
 		driveTrainRobotDrive = new RobotDrive(dTSparkControllerLeft, dTSparkControllerRight);
 		//driveTrainRobotDrive = new RobotDrive(dtSparkController1, dtSparkController2, dtSparkController7, dtSparkController4);
  		
-		
-		servoLeft = new Servo(6);
-		servoRight = new Servo(7);
-		
 		// Encoders, ports 2/3 and 4/5 
 		EncoderLeft = new Encoder(3, 4, false, EncodingType.k4X);
         LiveWindow.addSensor("Encoders", "Quadrature Encoder Left", EncoderLeft);
