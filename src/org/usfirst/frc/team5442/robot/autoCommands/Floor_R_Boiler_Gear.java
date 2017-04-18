@@ -1,9 +1,10 @@
 package org.usfirst.frc.team5442.robot.autoCommands;
 
+import org.usfirst.frc.team5442.robot.commands.DriveStraightCmd;
 import org.usfirst.frc.team5442.robot.commands.GearLift;
-import baseCommands.DriveStraightCmd;
-import baseCommands.Timer_Command;
-import baseCommands.TurnToAngleCmd;
+import org.usfirst.frc.team5442.robot.commands.Timer_Command;
+import org.usfirst.frc.team5442.robot.commands.TurnToAngleCmd;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class Floor_R_Boiler_Gear extends CommandGroup{

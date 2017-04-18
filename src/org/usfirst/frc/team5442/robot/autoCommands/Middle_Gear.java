@@ -1,9 +1,9 @@
 package org.usfirst.frc.team5442.robot.autoCommands;
 
+import org.usfirst.frc.team5442.robot.commands.DriveStraightCmd;
 import org.usfirst.frc.team5442.robot.commands.Gear_Arms_Out;
+import org.usfirst.frc.team5442.robot.commands.Timer_Command;
 
-import baseCommands.DriveStraightCmd;
-import baseCommands.Timer_Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class Middle_Gear extends CommandGroup{
