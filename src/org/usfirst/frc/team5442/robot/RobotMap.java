@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -64,6 +65,7 @@ public class RobotMap {
 	
 	public static Ultrasonic ultra;
 	
+	public static NetworkTable table;
 	
 	public static void init() {
 		// Change these Values here to the ports we eventually use on the robot   
@@ -97,6 +99,8 @@ public class RobotMap {
 		navX = new AHRS(SerialPort.Port.kMXP);
 		
 		pdp = new PowerDistributionPanel();
+		
+		table = NetworkTable.getTable("GRIP/vision");
 		
 		//TODO Change port numbers
 		//DigitalOutput pingChannel = new DigitalOutput(0);

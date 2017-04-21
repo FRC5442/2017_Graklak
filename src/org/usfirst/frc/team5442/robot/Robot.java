@@ -51,8 +51,6 @@ public class Robot extends IterativeRobot {
 	public static GyroPID gyroPID;
 	
 	
-	
-	
 	Command autonomousCommand;
 	SendableChooser<Command> autoChooser;
 
