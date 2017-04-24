@@ -11,13 +11,13 @@ public class PiTable extends Subsystem{
 	static double defaultvalue = 0;
 	
 	public static double getX(){
-		double X = piTable.getNumber("course_correction", defaultvalue);
+		double X = piTable.getNumber("course_correction", 0);
+		System.out.println(X);
 		return X;
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
 		
 	}
 

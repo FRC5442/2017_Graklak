@@ -22,9 +22,6 @@ import org.usfirst.frc.team5442.robot.subsystems.Intake;
 import org.usfirst.frc.team5442.robot.subsystems.Sensors;
 import org.usfirst.frc.team5442.robot.subsystems.ServoBar;
 
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.Image;
-
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -60,8 +57,6 @@ public class Robot extends IterativeRobot {
 
 	//public static CameraServer server;
     int session;
-    Image frame;
-    NIVision.Rect rect;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.

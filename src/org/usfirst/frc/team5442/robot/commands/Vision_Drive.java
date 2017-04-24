@@ -23,13 +23,13 @@ public class Vision_Drive extends Command{
 		EncoderR.reset();
 	}
 	protected void execute(){
-		RobotMap.driveTrainRobotDrive.drive(m_speed, PiTable.getX());
+		double myx = PiTable.getX();
+		RobotMap.driveTrainRobotDrive.drive(m_speed, myx);
 	}
 	
 	@Override
 	protected boolean isFinished() {
-		//return Math.abs(EncoderL.get()) > m_distance;
-		return false;
+		return EncoderL.getStopped() && EncoderR.getStopped();
 	}
 	
 	protected void end(){
