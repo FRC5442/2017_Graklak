@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 public class PiTable extends Subsystem{
 
-	NetworkTable piTable = RobotMap.table;
-	double[] defaultvalue = new double[0];
+	static NetworkTable piTable = RobotMap.table;
+	static double defaultvalue = 0;
 	
-	public double[] getX(){
-		double[] X = piTable.getNumberArray("x_correction", defaultvalue);
+	public static double getX(){
+		double X = piTable.getNumber("x_correction", defaultvalue);
 		return X;
 	}
 	
