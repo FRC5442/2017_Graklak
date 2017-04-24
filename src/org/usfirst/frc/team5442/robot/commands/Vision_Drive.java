@@ -13,8 +13,9 @@ public class Vision_Drive extends Command{
 	Encoder EncoderL = RobotMap.EncoderLeft;
 	Encoder EncoderR = RobotMap.EncoderRight;
 	
-	public Vision_Drive(double speed){
+	public Vision_Drive(double speed, double distance){
 		m_speed = speed;
+		m_distance = distance;
 	}
 	
 	protected void initialize(){

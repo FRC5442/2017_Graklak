@@ -102,7 +102,10 @@ public class RobotMap {
 		
 		pdp = new PowerDistributionPanel();
 		
-		table = NetworkTable.getTable("GRIP/vision");
+		table = NetworkTable.getTable("/vision");
+		NetworkTable.setIPAddress("10.54.42.2");
+		
+		NetworkTable.initialize();
 		
 		//TODO Change port numbers
 		//DigitalOutput pingChannel = new DigitalOutput(0);
