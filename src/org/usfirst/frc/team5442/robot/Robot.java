@@ -10,6 +10,7 @@ import org.usfirst.frc.team5442.robot.autoCommands.NoAuto;
 import org.usfirst.frc.team5442.robot.autoCommands.Red1_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Red3_Gear;
 import org.usfirst.frc.team5442.robot.autoCommands.Red_Boiler_Auto;
+import org.usfirst.frc.team5442.robot.commands.Vision_Drive;
 import org.usfirst.frc.team5442.robot.subsystems.Climb;
 import org.usfirst.frc.team5442.robot.subsystems.DrivePID;
 import org.usfirst.frc.team5442.robot.subsystems.DriveTrain;
@@ -95,6 +96,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addObject("Red Boiler", new Red_Boiler_Auto());
 		autoChooser.addObject("BlueBoiler", new Blue_Boiler_Auto());
 		autoChooser.addObject("BaselineAuto", new BaselineAuto());
+		autoChooser.addObject("Vision Auto", new Vision_Drive(.5, 15));
 		autoChooser.addDefault("No Auto", new NoAuto());
 		SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
 		//SmartDashboard.putData("Auto mode", autoChooser);

@@ -103,11 +103,10 @@ public class RobotMap {
 		pdp = new PowerDistributionPanel();
 		
 		table = NetworkTable.getTable("/vision");
-		NetworkTable.setIPAddress("10.54.42.2");
-		
+		/**NetworkTable.setIPAddress("10.54.42.2");
+		NetworkTable.setServerMode();
 		NetworkTable.initialize();
-		
-		//TODO Change port numbers
+		**/		
 		//DigitalOutput pingChannel = new DigitalOutput(0);
 		//DigitalInput echoChannel = new DigitalInput(1);
 		//ultra = new Ultrasonic(pingChannel, echoChannel);

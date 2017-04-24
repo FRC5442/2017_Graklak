@@ -28,7 +28,8 @@ public class Vision_Drive extends Command{
 	
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(EncoderL.get()) > m_distance;
+		//return Math.abs(EncoderL.get()) > m_distance;
+		return false;
 	}
 	
 	protected void end(){

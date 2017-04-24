@@ -11,7 +11,7 @@ public class PiTable extends Subsystem{
 	static double defaultvalue = 0;
 	
 	public static double getX(){
-		double X = piTable.getNumber("x_correction", defaultvalue);
+		double X = piTable.getNumber("course_correction", defaultvalue);
 		return X;
 	}
 	
