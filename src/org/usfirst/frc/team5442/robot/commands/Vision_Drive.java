@@ -12,6 +12,9 @@ public class Vision_Drive extends Command{
 	double m_distance;
 	Encoder EncoderL = RobotMap.EncoderLeft;
 	Encoder EncoderR = RobotMap.EncoderRight;
+	double course_correction;
+	double encoder_left;
+	double encoder_right;
 	
 	public Vision_Drive(double speed, double distance){
 		m_speed = speed;
@@ -23,13 +26,15 @@ public class Vision_Drive extends Command{
 		EncoderR.reset();
 	}
 	protected void execute(){
-		double myx = PiTable.getX();
-		RobotMap.driveTrainRobotDrive.drive(m_speed, myx);
+		course_correction  = PiTable.getX();
+		System.out.print("course_correction = " + course_correction + "Encoders: L(" + EncoderL.getDistance() + ") R(" + EncoderR.getDistance() + ")");
+		RobotMap.driveTrainRobotDrive.drive(m_speed, -course_correction);
+		
 	}
 	
 	@Override
 	protected boolean isFinished() {
-		return EncoderL.getStopped() && EncoderR.getStopped();
+		return (EncoderL.getStopped() && EncoderR.getStopped());
 	}
 	
 	protected void end(){
