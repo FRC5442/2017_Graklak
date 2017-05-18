@@ -17,8 +17,8 @@ public class Red_Boiler_Side extends CommandGroup{
 		addSequential(new Gear_Arms_Out(1));
 		addSequential(new DriveStraightCmd(5, .6, .4, 1));
 		//new stuff
-		addParallel(new TurnToAngleCmd(.425, 51));
-		addSequential(new Timer_Command(2));
-		addSequential(new DriveStraightCmd(10, -4, 2, -1));
+		//addParallel(new TurnToAngleCmd(.425, 51));
+		//addSequential(new Timer_Command(2));
+		//addSequential(new DriveStraightCmd(10, -4, 2, -1));
 	}
 }

@@ -8,7 +8,7 @@ public class JoystickScaler extends Subsystem{
 	
 	public static double Scale(int axisNumber){
 		double value = OI.xboxController1.getRawAxis(axisNumber);
-		if (value >=.9){
+		if (value >=.8){
 			value = 1;
 		}
 		return value;
